@@ -1,0 +1,60 @@
+.content{
+    width: 100%;
+    position: absolute;
+    top: 25%;
+    text-align: center;
+    color: #211513;
+}
+.content h1{
+    font-size: 50px;
+    font-weight: 700;
+}
+.content h2{
+    font-size: 30px;
+    font-weight: 700;
+    padding: 30px 30%;
+}
+
+.btn-home{
+    font-size: 35px;
+    background-color: transparent;
+    border: 1px solid #211513;
+    cursor: pointer;
+    border-radius: 85px;
+    color: #211513;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0.5% 1%;
+    margin: 2% 2%;
+    width: 250px;
+    z-index: 0;
+}
+.btn-home:hover{
+    border: none;
+}
+
+/* ------------------reponsive------------------------- */
+@media (min-width: 768px ) and (max-width: 1000px){
+    .content h1{
+        font-size: 32px;
+        font-weight: 500;
+    }
+    .content h2{
+        font-size: 36px;
+        font-weight: 700;
+        padding: 30px 30%;
+    }
+}
+@media (max-width: 767px ){
+    .content h1{
+        font-size: 30px;
+        font-weight: 300;
+    }
+    .content h2{
+        font-size: 25px;
+        font-weight: 300;
+        padding: 30px 30%;
+    }
+}

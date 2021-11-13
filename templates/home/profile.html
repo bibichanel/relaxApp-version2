@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    {% if user.is_authenticated %}
+    <div class="profile">
+        <p id="title-profiles">Hello bro, your profile is</p>
+        <div class="contents-profile">
+            <p>Logging in with account <strong>{{ user.username}}</strong></p>
+            <p>Nickname  <strong>{{ user.nickname}}</strong></p>
+            <p>Last login: {{ user.last_login }}</p>
+            <p>Register on time: {{ user.date_joined }}</p>
+        </div>
+    </div>
+    {% else %}
+    <div class="profile">
+        <p id="title-profiles">You wasted 5s of your life</p>
+        <div class="contents-profile">
+            <p>Create a nickname to use the service</p>
+        </div>
+    </div>
+    {% endif %} 
+</div>
+{% endblock %}

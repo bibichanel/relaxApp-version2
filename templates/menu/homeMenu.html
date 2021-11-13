@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>menu</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/menu/homeMenu.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+    
+</head>
+<body>
+    <div class="container-menu">
+        <div class='left-bar'>
+            <div class='img-bar'>
+                <a href="/"}">
+                    <img src="{% static 'image/logo.png' %}" alt="Logo">
+                </a>
+            </div>
+            <div class='container-navigations'>
+                <div class='navigations'>
+                    <i class="fas fa-chevron-left"></i>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class='menu-bar'>
+            <div class='bookmarks'>
+                <p>01</p>
+            </div>
+            <div class='item-container'>
+                <div class='item-icon'>
+                    <div class='icon'>
+                        <i class="fas fa-toolbox"></i>
+                    </div>
+                    <h2>Music</h2>
+                    <p>Soft Music</p>
+                    <div class="btn-menu">
+                        <a  style="text-decoration: none" href="{% url 'music' %}" ><button type="button"><span></span>Join Us</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='menu-bar'>
+            <div class='bookmarks'>
+                <p>02</p>
+            </div>
+            <div class='item-container'>
+                <div class='item-icon'>
+                    <div class='icon'>
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h2>Chat</h2>
+                    <p>Anonymous Letter</p>
+                    <div class="btn-menu">
+                        <a  style="text-decoration: none" href="{% url 'chat' %}"><button type="button"><span></span>Join Us</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='menu-bar'>
+            <div class='bookmarks'>
+                <p>03</p>
+            </div>
+            <div class='item-container'>
+                <div class='item-icon'>
+                    <div class='icon'>
+                        <i class="far fa-image"></i>
+                    </div>
+                    <h2>Image</h2>
+                    <p>Looking in love</p>
+                    <div class="btn-menu">
+                        <a  style="text-decoration: none" href="{% url 'image' %}"><button type="button"><span></span>Join Us</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='menu-bar'>
+            <div class='bookmarks'>
+                <p>04</p>
+            </div>
+            <div class='item-container'>
+                <div class='item-icon'>
+                    <div class='icon'>
+                        <i class="far fa-smile"></i>
+                    </div>
+                    <h2>Tools</h2>
+                    <p>Play To Relax</p>
+                    <div class="btn-menu">
+                        <a  style="text-decoration: none" href="{% url 'tools' %}"><button type="button"><span></span>Join Us</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

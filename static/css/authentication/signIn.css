@@ -1,0 +1,51 @@
+.container-form{
+    text-align: center;
+}
+.content-form{
+    display: inline-block;
+}
+.content-form h2{
+    color: #211513;
+    font-size: 30pt;
+}
+.input-container{
+    margin-top: 10%;
+    background: rgba(33, 21, 19, 0.2);
+    border-radius: 50px;
+    padding: 4.5% 0;
+    overflow: hidden;
+}
+.input-container i{
+    font-size: 18pt;
+    padding-left: 15px;
+}
+.input-container input{
+    font-size: 15pt;
+    padding: 0 15px;
+    color: #211513;
+    background-color: transparent;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+}
+.input-container input::placeholder{
+    border: none;
+    background-color: transparent;
+    color: #211513;
+}
+.btn{
+    margin-top: 10%;
+    background: #FB646B;
+    border-radius: 50px;
+    border-color: #FB646B;
+    color: #FFFFFF;
+    font-size: 15pt;
+    font-weight: 600;
+    padding: 12px 90px;
+}
+.link-signup{
+    margin-top: 10%;
+    color: #211513;
+    font-size: 12pt;
+    font-weight: 600;
+}

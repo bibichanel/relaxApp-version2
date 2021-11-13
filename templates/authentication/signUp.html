@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Sign in {% endblock %}
+
+{% block content %}
+<div class='container-form-signup'>
+    <form method="post" action="." class="content-form-signup">
+        <h2>SIGN UP</h2>
+        
+        {% csrf_token %}
+        <div class="input-container-signup">
+            <i class="fa fa-user icon"></i>
+            {{ form.username }}
+        </div>
+
+        <div class="input-container-signup">
+            <i class="fa fa-user icon"></i>
+            {{ form.nickname }}
+        </div>
+        
+        <div class="input-container-signup">
+            <i class="fa fa-key icon"></i>
+            {{ form.password }}
+        </div>
+
+        <div class="input-container-signup">
+            <i class="fa fa-key icon"></i>
+            {{ form.retypePassword }}
+        </div>
+
+        <div class='frame-btn'>
+            <button type="submit" class="btn">CREATE ACCOUNT</button>
+        </div>
+    
+    </form>
+</div>
+{% endblock %}

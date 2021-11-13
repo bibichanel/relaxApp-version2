@@ -1,0 +1,90 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+    color: #211513;
+}
+.row{
+    width: 100%;
+    display: flexbox;
+}
+/* --------------------------------------header---------------------------------- */
+header{
+    background-color: #15191E;
+    min-height: 200px;
+    position: relative;
+    box-shadow: 15px 4px 50px 5px rgba(0, 0, 0, 0.4);
+}
+.container-header{
+    margin: 15px 1%;
+    width: 100%;
+    display: inline-flex;
+    min-height: 100px;
+}
+.container-logo-child{
+    width: 40%;
+}
+.container-logo-child img{
+    width: 25%;
+    margin-top: 15px;
+    margin-left: 60px;
+}
+.title-page{
+    width: 60%;
+}
+.title-page h1{
+    color: #FFFFFF;
+    font-size: 25pt;
+    font-weight: 600;
+    margin: 3.5% 0;
+}
+
+
+
+/* --------------------------------------contents---------------------------------- */
+.contents{
+    min-height: 330px;
+    display: flex;
+}
+article{
+    width: 65%;
+
+    min-height: inherit;
+}
+.frame-chat{
+    position: absolute;
+    display: block;
+    background-color: #FFFFFF;
+    min-height: 530px;
+    top: 17.5%;
+    transform: translateX(15%);
+    width: 55%;
+    box-shadow: 15px 4px 50px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+}
+/* ----------------------------------------------- */
+aside{
+    width: 35%;
+
+    min-height: inherit;
+}
+.frame-user{
+    position: absolute;
+    display: block;
+    background-color: #FFFFFF;
+    min-height: 530px;
+    top: 17.5%;
+    transform: translateX(30%);
+    width: 20%;
+    box-shadow: 15px 4px 50px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+}
+
+
+/* -----------------------------------------footer---------------------------------------- */
+footer{
+    background-color: #15191E;
+    min-height: 200px;
+    box-shadow: 15px 4px 50px 5px rgba(0, 0, 0, 0.4);
+}

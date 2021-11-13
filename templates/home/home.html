@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% load static%}
+
+{% block content %}
+<div class='content'>
+    {% if user.is_authenticated %}
+    <h2>Congratulations on entering the entertainment universe.Let's find out what's in here together.</h2>
+    <div>
+        <a href="{% url 'menu' %}" style="text-decoration: none;"><button class="btn-home">Relax Now</button></a>
+    </div>
+    {% else %}
+    <h1>Ladies And Gentlemen</h1>
+    <h2>Welcome to the place where you can relax the best</h2>
+    <div>
+        <a href="{% url 'signin' %}" style="text-decoration: none;"><button class="btn-home">Join Us</button></a>
+    </div>
+    {% endif %} 
+</div>
+{% endblock %}

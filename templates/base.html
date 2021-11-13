@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{% block title %}{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/aboutUs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/authentication/signin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/authentication/signup.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="banner">
+        <header>
+            <nav class="container-header">
+                <img src="{% static 'image/logo.png' %}" alt="Logo"> 
+                <ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about-us' %}">About Us</a>
+                    </li>
+                </ul> 
+                {% if user.is_authenticated %}
+                <a href="{% url 'signout' %}" style="text-decoration: none;"><button class="btn-header">Log Out</button></a>
+                {% else %}
+                <a href="{% url 'signin' %}" style="text-decoration: none;"><button class="btn-header">Join Us</button></a>
+                {% endif %}   
+                
+            </nav> 
+        </header>
+
+        <!-- ---------------------------------------------------------------- -->
+        <div class='' >
+            {% block content %}
+            {% endblock %}   
+        </div>
+         <!-- ---------------------------------------------------------------- -->
+
+        <footer>
+            <div class="container-footer">
+                <div class='media-icons'>
+                    <a href="https://github.com/bibichanel/relaxApp" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/bat.hopli" target="_blank"><i class="fab fa-facebook"></i></a>
+                </div>
+                <div class="about-footer">
+                    <p>University: information techology</p>
+                    <p>relax.it@gmail.com</p>
+                </div>
+                <div class='media-icons'>
+                    <a href="https://twitter.com/KhanhTr43600191" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/khanhtrung.159/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

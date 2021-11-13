@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Sign in {% endblock %}
+
+{% block content %}
+    <div class='container-form'>
+        <form action="." method="post" class="content-form">
+            <h2>SIGN IN</h2>
+            
+            {% csrf_token %}
+            <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                {{ form.username }}
+            </div>
+            
+            <div class="input-container">
+                <i class="fa fa-key icon"></i>
+                {{ form.password }}
+            </div>
+     
+            <button type="submit" class="btn">GET STARTED</button>
+
+            <a style="text-decoration: none; " href="{% url 'signup' %}"><p class="link-signup">CREATE ACCOUNT</p></a>
+        </form>
+    </div>
+{% endblock %}
