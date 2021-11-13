@@ -28,7 +28,7 @@
 .nav-item{
     list-style: none;
     display: inline-block;
-    margin: 0 30px;
+    margin: 0 5vh;
     position: relative;
 }
 .nav-item::after{
@@ -81,6 +81,7 @@ footer{
     background: rgba(32, 32, 32, 0.2);
     border: 1px solid #000000;
     box-sizing: border-box;
+    align-items: center;
 }
 .container-footer{
     width: 100%;
@@ -90,7 +91,7 @@ footer{
 }
 .about-footer{
     text-align: center;
-    width: 60%;
+    width: 50%;
 }
 .about-footer p{
     color: #FFFFFF;
@@ -98,13 +99,13 @@ footer{
     font-weight: 500;
 }
 .media-icons{
-   width: 20%;
+   width: 25%;
    text-align: center;
 }
 .media-icons i{
     font-size: 45px;
     color: #211513;
-    margin: 0 45px;
+    margin: 0 5vh;
     transition-duration: 1s;
 }
 .media-icons i:hover{
