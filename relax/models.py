@@ -5,11 +5,11 @@ from django.db import models
 from django.urls import reverse
 
 class Song(models.Model):
-    stt = models.TextField(default="")
+    stt = models.TextField(unique=True, default="")
     title = models.TextField(default="Nameless")
     artist = models.TextField(default="Unknown")
-    image = models.ImageField(default="https://cdn.pixabay.com/photo/2014/04/02/10/57/vinyl-305025_640.png")
-    audio_file = models.FileField(blank=True,null=True)
+    image = models.ImageField(upload_to='music-background/', default="https://cdn.pixabay.com/photo/2014/04/02/10/57/vinyl-305025_640.png")
+    audio_file = models.FileField(upload_to='music/', blank=True,null=True)
     audio_link = models.CharField(max_length=200,blank=True,null=True)
     duration = models.CharField(max_length=20, default="0")
     paginate_by = 2
