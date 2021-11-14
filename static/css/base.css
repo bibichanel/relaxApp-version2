@@ -85,7 +85,7 @@ footer{
 }
 .container-footer{
     width: 100%;
-    margin: 1% auto;
+    margin: 1% auto;  
     display: inline-flex;
     align-items: center;
 }
