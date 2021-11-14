@@ -48,7 +48,7 @@
                     <p id="music-artist">{{item.artist}}</p>
 
                     <div class="lecteur">
-                        <audio class="fc-media" style="width: 100%;">
+                        <audio class="fc-media" style="width: 100%;" autoplay>
                             <source src="{% if item.audio_file %}{{item.audio_file.url}} {% else %} {{item.audio_link}} {% endif %}" type="audio/mp3" />
                         </audio>
                     </div>
