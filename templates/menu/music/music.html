@@ -7,8 +7,11 @@
     <title>Music</title>
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/menu/music/music.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu/tools/tools.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelementplayer.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/menu/music/music.css' %}">
 </head>
 <body>
     <div class="menu-container">
@@ -17,7 +20,7 @@
                 <a href="/">
                     <img src="{% static 'image/logo.png' %}" alt="Logo">
                 </a>
-            </div>    
+            </div>
             <div class='item-container'>
                 <div class='item-icon'>
                     <div class='icon'>
@@ -25,33 +28,65 @@
                     </div>
                     <h2>Music</h2>
                     <p>Soft Music</p>
-                    <div class="btn-menu">
-                        <button type="button"><span></span>Join Us</button>
-                    </div>
+                </div>
+                <div class="btn-menu">
+                    <a style="text-decoration: none" href="{% url 'menu'%}" >
+                        <button type="button"><span></span>Back&nbsp;></button>
+                    </a>
                 </div>
             </div>
         </div>
         <div id="music-container">
+            
             <div id="music-dashboard">
-                <p id="music-status">Music status</p>
-                <div id="cd-box">
-                    <img id="cd" src="https://cdn.pixabay.com/photo/2014/04/02/10/57/vinyl-305025_640.png" alt="cd">
-                </div>
-                
-                <p id="music-name">Music name</p>
-                <p id="music-artist">Artis</p>
-                <!-- Thanh tiến độ thời gian -->
-                <div id="prev-pause-resume-next-btn">
-                    <button class="music-dashboard-btn" id="prev-btn">&#8592;</button>
-                    <button class="music-dashboard-btn" id="pause-btn">&#8214;</button>
-                    <button class="music-dashboard-btn" id="resume-btn">&#8227;</button>
-                    <button class="music-dashboard-btn" id="next-btn">&rarr;</button>
-                </div>
-            </div>
-            <div id="music-list">
+                {% for item in page_obj %}
+                    <div id="cd-box">
+                        <img id="cd" src="{{item.image.url}}" alt="cd">
+                    </div>
 
+                    <p id="music-name">{{item.title}}</p>
+                    <p id="music-artist">{{item.artist}}</p>
+
+                    <div class="lecteur">
+                        <audio class="fc-media" style="width: 100%;">
+                            <source src="{% if item.audio_file %}{{item.audio_file.url}} {% else %} {{item.audio_link}} {% endif %}" type="audio/mp3" />
+                        </audio>
+                    </div>
+                    <center>
+                        <a href="{% if page_obj.has_previous %}?page={{ page_obj.previous_page_number }}{% endif %}"><i
+                                class="fa fa-step-backward fa-2x" id="song-previous-btn"></i></a>
+                        &nbsp; &nbsp; &nbsp;
+                        <a href="{% if page_obj.has_next %}?page={{ page_obj.next_page_number }} {% endif %}"><i
+                                class="fa fa-step-forward fa-2x" id="song-forward-btn"></i></a>
+                    </center>
+                {% endfor %}
+            </div>
+            
+            <div id="music-list">
+                <h2>Music List</h2>
+                {% if song_list %}
+                <ul>
+                    {% for song in song_list %}
+                    <a href="?page={{song.stt}}" id="song-link">
+                        <li class="song-index">
+                            <div class="song-infomation">
+                                <p id="song-title">{{song.title}}</p>
+                                <p id="song-artist">{{song.artist}}</p>
+                            </div>
+                        </li>
+                    </a>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                    <p>No song in the library.</p>
+                {% endif %}
             </div>
         </div>
     </div>
 </body>
 </html>
+
+<!-- partial -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
