@@ -23,10 +23,20 @@ class ChatClass(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, "menu/chat/chat.html")
 
+from django.core.paginator import Paginator
+from relax.models import Song
+
 class MusicClass(LoginRequiredMixin, View):
     def get(self, request):
-        return render(request, "menu/music/music.html")
-    
+        paginator = Paginator(Song.objects.all(), 1)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
+        song_list = Song.objects.all()
+        context = {"page_obj": page_obj, "song_list": song_list}
+
+        return render(request, "menu/music/music.html", context)
+
 class ToolsClass(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, "menu/tools/tools.html")

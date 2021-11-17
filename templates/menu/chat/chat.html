@@ -12,28 +12,94 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 </head>
 <body>
-    <header class="row">
-        <div class="container-header">
-            <div class="container-logo-child">
-                <img src="{% static 'image/logoWhite.png' %}" alt="Logo">
+    <div class='container'>
+        <div class='container-logo'>
+            <img src="{% static 'image/logoChat.png' %}" alt="Logo"> 
+        </div>
+        <div class='container-music'>
+            <div class='quick-player'>
+                <i class="fas fa-volume-up"></i>
+                <i class="fas fa-step-backward"></i>
+                <i class="fas fa-play"></i>
+                <i class="fas fa-pause"></i>
+                <i class="fas fa-step-forward"></i>
             </div>
-            <div class="title-page">
-                <h1>CHAT - ANONYMOUS</h1>
+            <div class='music-content'>
+                <h2>You are listening to the song: Đừng ai nhắc về cô ấy - Phạm anh quân</h2>
             </div>
         </div>
-    </header>
-    <div class="contents row">
-        <article>
-            <div class="frame-chat">
-                <h1></h1>
+        <!-- ------------------------------------------------------------ -->
+        <div class='container-main'>
+            <div class='container-tools'>
+                <div class='tool-choose-name'>
+                    <form action=".">
+                        <div class="choose">
+                            <input type="radio"  name="choose01" value="Nickname">
+                            <label for="choose01">Use your nickname</label><br>
+                        </div>
+                        <div class='choose'>
+                            <input type="radio"  name="choose01" value="NewName">
+                            <label for="choose01">Use a different name</label><br>
+                        </div>
+                        <div class='type-sub'>
+                            <input id='text-type' type="text" for='choose01' placeholder="Type new name">
+                            <input id='sub-type' type="submit" value="Use">
+                        </div>
+                      </form>
+                </div>
+                <div class='frame-user'>
+                    <table>
+                        <tbody>
+                            <tr class='row-user'>
+                                <td class="td-dote"><i class="fas fa-circle"></i></td>
+                                <td class='td-icon-user'><i class="fas fa-user-tie"></i></td>
+                                <td class='td-name'><p>nickname</p></td>
+                            </tr>
+                            <tr class='row-user'>
+                                <td class="td-dote"><i class="fas fa-circle"></i></td>
+                                <td class='td-icon-user'><i class="fas fa-user-tie"></i></td>
+                                <td class='td-name'><p>bibichanel</p></td>
+                            </tr>
+                            <tr class='row-user'>
+                                <td class="td-dote"><i class="fas fa-circle"></i></td>
+                                <td class='td-icon-user'><i class="fas fa-user-tie"></i></td>
+                                <td class='td-name'><p>nickname123</p></td>
+                            </tr>
+                            <tr class='row-user'>
+                                <td class="td-dote"><i class="fas fa-circle"></i></td>
+                                <td class='td-icon-user'><i class="fas fa-user-tie"></i></td>
+                                <td class='td-name'><p>Alice</p></td>
+                            </tr>
+                            <tr class='row-user'>
+                                <td class="td-dote"><i class="fas fa-circle"></i></td>
+                                <td class='td-icon-user'><i class="fas fa-user-tie"></i></td>
+                                <td class='td-name'><p>Bob</p></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class= 'choose-background'>
+                    <div class='content-cb'>
+                        <h3>Choose Background</h3>
+                    </div>
+                    <div class='drop-btn'>
+                        <input type="text" placeholder="Background hill digital">
+                    </div>
+                </div>
             </div>
-        </article>
-        <aside>
-            <div class="frame-user"">
-                <h1></h1>
+            <div class='container-chat'>
+                <div class='header-chat'>
+                    <div class='logo-chat'>  
+                        <i class="far fa-comments"></i>
+                    </div>
+                </div>
+
             </div>
-        </aside>
+        </div>
+        <!-- ------------------------------------------------------------ -->
+        <div class='container-footer'>
+            <h3>relax.it@gmail.com</h3>
+        </div>
     </div>
-    <footer class="row"></footer>
 </body>
 </html>

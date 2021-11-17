@@ -2,89 +2,200 @@
     padding: 0;
     margin: 0;
     font-family: "Montserrat", sans-serif;
-    box-sizing: border-box;
     color: #211513;
 }
-.row{
+.container{
     width: 100%;
-    display: flexbox;
+    height: 100vh;
+    background-image:linear-gradient(rgba(40, 47, 65, 0.7), rgba(40, 47, 65, 0.7)),  url("../../../image/background/hillDigital.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -100;
+    box-sizing: border-box;
+    overflow: auto;
 }
-/* --------------------------------------header---------------------------------- */
-header{
-    background-color: #15191E;
-    min-height: 200px;
+/* ---------------------------Logo------------------------ */
+.container-logo{
+    display: block;
+    text-align: center;
+}
+.container-logo img{
+    width: 20%;
+    margin: 15px 0;
+}
+/* ---------------------------Music bar------------------------ */
+.container-music{
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-left: none;
+    border-right: none;
+    display: flex;
+    align-items: center;
+}
+.quick-player{
+    width: 20% ;
+    border-right: 1px solid rgba(255, 255, 255, 0.6);
+    margin: 0 3%;
+}
+.quick-player i {
+    margin: 0 6.5%;
+    color: #A2A1FF;
+}
+.music-content{
+    overflow: hidden;
+    width: 80%;
+    margin: 5px 0;
+}
+.music-content h2{
+    color: #FFFFFF;
+
+}
+/* ---------------------------Main------------------------ */
+.container-main{
+    display: flex;
+    align-items: center;
+    width: 100%;
     position: relative;
-    box-shadow: 15px 4px 50px 5px rgba(0, 0, 0, 0.4);
 }
-.container-header{
-    margin: 15px 1%;
-    width: 100%;
-    display: inline-flex;
-    min-height: 100px;
-}
-.container-logo-child{
+/* ---------------------------Tool------------------------ */
+/* ----------------btn-choose-name------------ */
+.container-tools{
     width: 40%;
 }
-.container-logo-child img{
-    width: 25%;
-    margin-top: 15px;
-    margin-left: 60px;
+.tool-choose-name{
+    margin: 2% 5%;
 }
-.title-page{
-    width: 60%;
+form{
+    display: inline-block;
+    background-color: transparent;
 }
-.title-page h1{
+.choose{
+    margin: 5% 0;
+    background-color: #5D6EB4;
+    border-radius: 10px;
+    padding: 15px 1.5vw;
+}
+.choose label{
+    font-size: 18px;
+    font-weight: 500;
     color: #FFFFFF;
-    font-size: 25pt;
-    font-weight: 600;
-    margin: 3.5% 0;
+    margin-right: 2.5vw;
 }
-
-
-
-/* --------------------------------------contents---------------------------------- */
-.contents{
-    min-height: 330px;
+.type-sub{
     display: flex;
 }
-article{
-    width: 65%;
-
-    min-height: inherit;
+#text-type{
+    background: #C4C4C4;
+    border-radius: 10px 0px 0px 10px;
+    padding: 9px 1vw;
+    outline: none;
+    font-size: 18px;
+    border: none;
 }
-.frame-chat{
-    position: absolute;
-    display: block;
-    background-color: #FFFFFF;
-    min-height: 530px;
-    top: 17.5%;
-    transform: translateX(15%);
-    width: 55%;
-    box-shadow: 15px 4px 50px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
+#text-type::placeholder{
+    color: #211513;
+    font-size: 15px;
 }
-/* ----------------------------------------------- */
-aside{
-    width: 35%;
-
-    min-height: inherit;
+#sub-type{
+    border: none;
+    outline: none;
+    background: #6563FF;
+    border-radius: 0px 10px 10px 0px;
+    padding: 0  1vw;
+    color: #FFFFFF;
+    font-size: 15pt;
+    font-weight: 600;
 }
+/* ----------------Frame-users------------ */
 .frame-user{
-    position: absolute;
+    margin-top: 30px;
     display: block;
-    background-color: #FFFFFF;
-    min-height: 530px;
-    top: 17.5%;
-    transform: translateX(30%);
-    width: 20%;
-    box-shadow: 15px 4px 50px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
+    overflow: auto;
+    min-height: 15vh;
+    padding: 1vh 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    width: 40%;
+    min-height: 30px;
 }
-
-
-/* -----------------------------------------footer---------------------------------------- */
-footer{
-    background-color: #15191E;
-    min-height: 200px;
-    box-shadow: 15px 4px 50px 5px rgba(0, 0, 0, 0.4);
+table{
+    min-height: 20vh;
+    overflow: auto;
+}
+.row-user{
+    align-items: center;
+}
+.row-user td{
+    padding: 0 1vh;
+}
+.td-dote i{
+    color: #14C37A;
+    font-size: 5pt;
+}
+.td-icon-user i{
+    color: #A2A1FF;
+    font-size: 15pt;
+}
+.td-name p{
+    color: #FFFFFF;
+}
+/* ----------------Choose-background------------ */
+.choose-background{
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    min-height: 20vh;
+}
+.content-cb{
+    text-align: center;
+    
+}
+.content-cb h3{
+    display: inline-block;
+    color: #FFFFFF;
+    font-size: 12pt;
+    font-weight: 400;
+    border-bottom: 3px solid #FFFFFF;
+    padding: 1vh 0;
+}
+.drop-btn{
+    margin: 2vh 2vw;
+    background-color: transparent;
+}
+.drop-btn input{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 15pt;
+}
+.drop-btn input::placeholder{
+    font-size: 15pt;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+/* ---------------------------Chat------------------------ */
+.container-chat{
+    width: 60%;
+    background-color: rgba(21, 25, 30, 0.5);
+}
+.header-chat{
+    min-height: 5vh;
+}
+.logo-chat{
+    display: inline-block;
+}
+.logo-chat i{
+    font-size: 15pt;
+}
+/* ------------------------------footer--------------------- */
+.container-footer{
+    min-height: 5vh;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    display: block;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+}
+.container-footer h3{
+    padding-top: 2vh;
+    color: #FFFFFF;
+    font-size: 12pt;
+    font-weight: 400;
 }
