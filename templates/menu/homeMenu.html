@@ -57,7 +57,7 @@
                     <h2>Chat</h2>
                     <p>Anonymous Letter</p>
                     <div class="btn-menu">
-                        <a  style="text-decoration: none" href="{% url 'chat' %}"><button type="button"><span></span>Join Us</button></a>
+                        <a  style="text-decoration: none" id='room-name-submit'><button type="button"><span></span>Join Us</button></a>
                     </div>
                 </div>
             </div>
@@ -97,6 +97,17 @@
             </div>
         </div>
     </div>
+    <section>
+        {{ user.nickname|json_script:"json-username" }}
+    </section>
+    <script>
+        const _username_ = JSON.parse(document.getElementById('json-username').textContent);
+        document.querySelector('#room-name-submit').onclick = function(e) {
+        var roomName ='anonymous';
+        var userName = _username_;
+        window.location.href = 'chat/' + roomName + '/?username=' + _username_;
+        };
+    </script>
 </body>
 </html>
 

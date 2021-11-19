@@ -53,7 +53,6 @@
 /* ---------------------------Main------------------------ */
 .container-main{
     display: flex;
-    align-items: center;
     width: 100%;
     position: relative;
 }
@@ -110,7 +109,6 @@ form{
 .frame-user{
     margin-top: 30px;
     display: block;
-    overflow: auto;
     min-height: 15vh;
     padding: 1vh 0;
     border-top: 1px solid rgba(255, 255, 255, 0.6);
@@ -119,7 +117,7 @@ form{
 }
 table{
     min-height: 20vh;
-    overflow: auto;
+    overflow-y: scroll;
 }
 .row-user{
     align-items: center;
@@ -170,19 +168,133 @@ table{
     font-weight: 500;
     color: #FFFFFF;
 }
-/* ---------------------------Chat------------------------ */
+/* ---------------------------frame Chat------------------------ */
 .container-chat{
-    width: 60%;
+    width: 55%;
     background-color: rgba(21, 25, 30, 0.5);
+    margin: 0 ;
 }
 .header-chat{
-    min-height: 5vh;
+    height: 60px;
+    max-height: 60px;
+    background: rgba(21, 25, 30, 0.7);
+    display: flex;
+    width: 100%;
 }
 .logo-chat{
-    display: inline-block;
+    background: rgba(101, 99, 255, 0.65);
+    min-height: inherit;
+    width: 8.5%;
+    display: flex;
+    align-items: center;
 }
 .logo-chat i{
-    font-size: 15pt;
+    font-size: 25pt;
+    color: #FFFFFF;
+    margin: 0 auto;
+}
+.name-room{
+    width: 90%;
+    min-height: inherit;
+    display: flex;
+    align-items: center;
+}
+.name-room h2{
+    padding-left: 3vw;
+    font-size: 25pt;
+    font-weight: 600;
+    color: #FFFFFF;
+    align-items: center;
+}
+/* ----------chat-box------------- */
+.chat-box{
+    height: 395px;
+    max-height: 395px;
+    padding: 10px 30px 20px 30px ;
+    overflow-y: auto;
+}
+.message-incoming{
+    display: flex;
+    max-width: calc(100% - 30%);
+    margin-right: auto;
+}
+.icon-user-name i{
+    font-size: 22pt;
+    color: #C1C0FF;
+}
+.container-name-detail{
+    margin: 8px 15px;
+}
+.name-user p{
+    font-size: 16pt;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+.detail-incoming{
+    background: rgba(93, 110, 180, 0.7);
+    border-radius: 0px 50px 50px 30px;
+    padding: 8px 16px;
+    box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0 16px  16px -16px rgb(0 0 0 / 10%);
+}
+.detail-incoming p{
+    color: #FFFFFF;
+    font-size: 16pt;
+    font-weight: 300;
+    word-wrap: break-word;
+}
+.massage-outgoing{
+    display: flex;
+    max-width: calc(100% - 30%);
+    margin-left: auto;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.massage-outgoing .name-user{
+    margin-left: auto;
+    text-align: right;
+}
+.detail-outgoing{
+    background: rgba(250, 190, 182, 0.5);
+    border-radius: 50px 0px 30px 50px;
+    padding: 8px 16px;
+    box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0 16px  16px -16px rgb(0 0 0 / 10%);
+}
+.detail-outgoing p{
+    color: #FFFFFF;
+    font-size: 16pt;
+    font-weight: 300;
+    word-wrap: break-word;
+}
+/* --------------typing area------------ */
+.container-typing-area{
+    background: rgba(196, 196, 196, 0.3);
+    height: calc(100% -70%);
+    min-height: 60px;
+    width: 100%;
+}
+.typing-area{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    min-height: inherit;
+}
+.typing-area input{
+    font-size: 20pt;
+    width: 90%;
+    margin-left: 2.5vw;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+.typing-area input::placeholder{
+    color: #FFFFFF;
+}
+.btn-messager-submit{
+    width: 10%;
+}
+.btn-messager-submit i{
+    font-size: 30pt;
+    color: #FFFFFF;
 }
 /* ------------------------------footer--------------------- */
 .container-footer{
