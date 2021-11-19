@@ -30,7 +30,9 @@
         </div>
         <!-- ------------------------------------------------------------ -->
         <div class='container-main'>
+             <!-- ------------------------------tools------------------------------ -->
             <div class='container-tools'>
+                 <!-- ---------------------------btn choose name--------------------------------- -->
                 <div class='tool-choose-name'>
                     <form action=".">
                         <div class="choose">
@@ -47,6 +49,7 @@
                         </div>
                       </form>
                 </div>
+                 <!-- -------------------------------frame user--------------------------- -->
                 <div class='frame-user'>
                     <table>
                         <tbody>
@@ -78,6 +81,7 @@
                         </tbody>
                     </table>
                 </div>
+                 <!-- ---------------------------------choose background--------------------------- -->
                 <div class= 'choose-background'>
                     <div class='content-cb'>
                         <h3>Choose Background</h3>
@@ -87,13 +91,44 @@
                     </div>
                 </div>
             </div>
+             <!-- --------------------------------frame chat---------------------------- -->
             <div class='container-chat'>
                 <div class='header-chat'>
                     <div class='logo-chat'>  
                         <i class="far fa-comments"></i>
                     </div>
+                    <div class='name-room'>
+                        <h2>Anonymous chat room</h2>
+                    </div>
                 </div>
+                <!-- ------------------------- -->
+                <div class="chat-box"  id='chat-messages'>
+                    {% for item in message %}
+                    <b>{{ item.username }}</b>
+                    <b>: {{ item.content }}</b>
+                    {% endfor %}
 
+                    <!-- <div class="message-incoming">
+                        <div class="container-name-detail">
+                            <div class="name-user">
+                                <p>Bob</p>
+                            </div>
+                            <div class="detail-incoming">
+                                <p>asdaslkdasa;slda;l in pi ip njpasdfasdasdasdas đâSadasdas n p np0dk.</p>
+                            </div>
+                        </div>
+                        <div class="icon-user-name">
+                            <i class="far fa-user"></i>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- ------------------------- -->
+                <div class="container-typing-area">
+                    <form action="." class='typing-area'>
+                        <input type="text" name="" id="chat-massager-input" placeholder="Typing a message here ...">
+                        <a class ='btn-messager-submit' id='chat-massager-submit'><i class="fab fa-telegram-plane"></i></a>
+                    </form>
+                </div>
             </div>
         </div>
         <!-- ------------------------------------------------------------ -->
@@ -101,5 +136,72 @@
             <h3>relax.it@gmail.com</h3>
         </div>
     </div>
+    <section>
+        {{ room_name|json_script:"json-roomname" }}
+        {{ user.nickname|json_script:"json-username" }}
+    </section>
+    <script>
+        function scrollToBottom(){
+            let objDiv = document.getElementById("chat-messages");
+            objDiv.scrollTop = objDiv.scrollHeight;
+        };
+        scrollToBottom();
+
+        const _roomName = JSON.parse(document.getElementById('json-roomname').textContent);
+        const _username = JSON.parse(document.getElementById('json-username').textContent);
+
+        const chatSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/'
+            + _roomName
+            + '/'
+        );
+        chatSocket.onmessage = function(e){
+            console.log('onmessage');
+
+            const data = JSON.parse(e.data);
+
+            if(data.message){
+                let string_of_html = 
+                `
+                <div class="massage-outgoing">
+                    <div class="icon-user-name">
+                        <i class="far fa-user"></i>
+                    </div>
+                    <div class="container-name-detail">
+                        <div class="name-user" id='username-outgoing'><p>`+data.username+`</p></div>
+                        <div class="detail-outgoing" id='message-outgoing'><p>`+data.message+`</p></div>
+                    </div>
+                </div>
+                `
+                document.querySelector('#chat-messages').innerHTML += string_of_html;
+            }
+            else{
+                alert('The message is empty!');
+            }
+            scrollToBottom();
+        };
+        chatSocket.onclose = function(e) {
+            console.log('The socket close');
+        }
+        // document.querySelector('#chat-massager-input').onkeyup = function(e) {
+        //     if (e.keyCode === 13) {
+        //             document.querySelector('#chat-massager-submit').click();
+        //         }
+        // };
+        document.querySelector('#chat-massager-submit').onclick = function(e){
+            const messageInputDom = document.querySelector('#chat-massager-input');
+            const message = messageInputDom.value;
+
+            chatSocket.send(JSON.stringify({
+                'message': message,
+                'username': _username,
+                'room': _roomName
+            }));
+
+            messageInputDom.value = ''
+        };
+    </script>
 </body>
 </html>
