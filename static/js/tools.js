@@ -30,7 +30,7 @@ function processing() {
             counter += 1;
             percent.innerHTML = counter + "%";
         }
-    }, 2000);
+    }, 2000/100);
 
     setTimeout(function() {
         document.getElementById("process-bar").style.setProperty("display", "none");
