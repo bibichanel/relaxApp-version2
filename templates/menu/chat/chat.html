@@ -103,24 +103,30 @@
                 </div>
                 <!-- ------------------------- -->
                 <div class="chat-box"  id='chat-messages'>
-                    {% for item in message %}
-                    <b>{{ item.username }}</b>
-                    <b>: {{ item.content }}</b>
-                    {% endfor %}
-
-                    <!-- <div class="message-incoming">
+                    {% for item in messages %}
+                    {% if item.username.username == user.username %}
+                    <div class="massage-outgoing">
                         <div class="container-name-detail">
-                            <div class="name-user">
-                                <p>Bob</p>
-                            </div>
-                            <div class="detail-incoming">
-                                <p>asdaslkdasa;slda;l in pi ip njpasdfasdasdasdas đâSadasdas n p np0dk.</p>
-                            </div>
+                            <div class="name-user"><p>{{ item.usernameAnonymous }}</p></div>
+                            <div class="detail-outgoing"><p>{{ item.content }}</p></div>
                         </div>
                         <div class="icon-user-name">
                             <i class="far fa-user"></i>
                         </div>
-                    </div> -->
+                    </div>
+                    {% else %}
+                    <div class="message-incoming">
+                        <div class="icon-user-name">
+                            <i class="far fa-user"></i>
+                        </div>
+                        <div class="container-name-detail">
+                            <div class="name-user"><p>{{ item.usernameAnonymous }}</p></div>
+                            <div class="detail-incoming"><p>{{ item.content }}</p></div>
+                        </div>
+                    </div>
+                    {% endif%}
+                    {% endfor %}
+
                 </div>
                 <!-- ------------------------- -->
                 <div class="container-typing-area">
@@ -138,7 +144,8 @@
     </div>
     <section>
         {{ room_name|json_script:"json-roomname" }}
-        {{ user.nickname|json_script:"json-username" }}
+        {{ user.nickname|json_script:"json-nickname" }}
+        {{ user.username|json_script:"json-username" }}
     </section>
     <script>
         function scrollToBottom(){
@@ -149,6 +156,8 @@
 
         const _roomName = JSON.parse(document.getElementById('json-roomname').textContent);
         const _username = JSON.parse(document.getElementById('json-username').textContent);
+        const _nickname = JSON.parse(document.getElementById('json-nickname').textContent);
+
 
         const chatSocket = new WebSocket(
             'ws://'
@@ -162,20 +171,37 @@
 
             const data = JSON.parse(e.data);
 
+            let string_of_html_messager = null;
             if(data.message){
-                let string_of_html = 
-                `
-                <div class="massage-outgoing">
-                    <div class="icon-user-name">
-                        <i class="far fa-user"></i>
+                if(data.nickname == _nickname){
+                    string_of_html_messager = 
+                    `
+                    <div class="massage-outgoing">
+                        <div class="container-name-detail">
+                            <div class="name-user"><p>`+data.nickname+`</p></div>
+                            <div class="detail-outgoing" ><p>`+data.message+`</p></div>
+                        </div>
+                        <div class="icon-user-name">
+                            <i class="far fa-user"></i>
+                        </div>
                     </div>
-                    <div class="container-name-detail">
-                        <div class="name-user" id='username-outgoing'><p>`+data.username+`</p></div>
-                        <div class="detail-outgoing" id='message-outgoing'><p>`+data.message+`</p></div>
+                    `;
+                } else{
+                    string_of_html_messager =
+                    `
+                    <div class="message-incoming">
+                        <div class="icon-user-name">
+                            <i class="far fa-user"></i>
+                        </div>
+                        <div class="container-name-detail">
+                            <div class="name-user"><p>`+data.nickname+`</p></div>
+                            <div class="detail-incoming"><p>`+data.message+`</p></div>
+                        </div>
                     </div>
-                </div>
-                `
-                document.querySelector('#chat-messages').innerHTML += string_of_html;
+                    `;
+                }
+                
+                document.querySelector('#chat-messages').innerHTML += string_of_html_messager;
             }
             else{
                 alert('The message is empty!');
@@ -185,11 +211,11 @@
         chatSocket.onclose = function(e) {
             console.log('The socket close');
         }
-        // document.querySelector('#chat-massager-input').onkeyup = function(e) {
-        //     if (e.keyCode === 13) {
-        //             document.querySelector('#chat-massager-submit').click();
-        //         }
-        // };
+        document.querySelector('#chat-massager-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {
+                    document.querySelector('#chat-massager-submit').click();
+                }
+        };
         document.querySelector('#chat-massager-submit').onclick = function(e){
             const messageInputDom = document.querySelector('#chat-massager-input');
             const message = messageInputDom.value;
@@ -197,7 +223,8 @@
             chatSocket.send(JSON.stringify({
                 'message': message,
                 'username': _username,
-                'room': _roomName
+                'room': _roomName,
+                'nickname' : _nickname
             }));
 
             messageInputDom.value = ''

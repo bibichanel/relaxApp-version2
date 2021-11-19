@@ -189,7 +189,7 @@ table{
     align-items: center;
 }
 .logo-chat i{
-    font-size: 30pt;
+    font-size: 25pt;
     color: #FFFFFF;
     margin: 0 auto;
 }
@@ -213,15 +213,10 @@ table{
     padding: 10px 30px 20px 30px ;
     overflow-y: auto;
 }
-.massage-outgoing{
-    display: flex;
-    max-width: calc(100% - 30%);
-    margin-right: auto;
-}
 .message-incoming{
     display: flex;
     max-width: calc(100% - 30%);
-    margin-left: auto;
+    margin-right: auto;
 }
 .icon-user-name i{
     font-size: 22pt;
@@ -235,13 +230,32 @@ table{
     font-weight: 600;
     color: #FFFFFF;
 }
-.message-incoming .name-user{
+.detail-incoming{
+    background: rgba(93, 110, 180, 0.7);
+    border-radius: 0px 50px 50px 30px;
+    padding: 8px 16px;
+    box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0 16px  16px -16px rgb(0 0 0 / 10%);
+}
+.detail-incoming p{
+    color: #FFFFFF;
+    font-size: 16pt;
+    font-weight: 300;
+    word-wrap: break-word;
+}
+.massage-outgoing{
+    display: flex;
+    max-width: calc(100% - 30%);
+    margin-left: auto;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.massage-outgoing .name-user{
     margin-left: auto;
     text-align: right;
 }
 .detail-outgoing{
-    background: rgba(93, 110, 180, 0.7);
-    border-radius: 0px 50px 50px 30px;
+    background: rgba(250, 190, 182, 0.5);
+    border-radius: 50px 0px 30px 50px;
     padding: 8px 16px;
     box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0 16px  16px -16px rgb(0 0 0 / 10%);
 }
@@ -250,18 +264,6 @@ table{
     font-size: 16pt;
     font-weight: 300;
     word-wrap: break-word;
-}
-.detail-incoming{
-    background: rgba(250, 190, 182, 0.5);
-    border-radius: 50px 0px 30px 50px;
-    padding: 8px 16px;
-    box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0 16px  16px -16px rgb(0 0 0 / 10%);
-}
-.detail-incoming p{
-    color: #FFFFFF;
-    font-size: 16pt;
-    font-weight: 300;
-    /* word-wrap: break-word; */
 }
 /* --------------typing area------------ */
 .container-typing-area{
