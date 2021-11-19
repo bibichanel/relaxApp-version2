@@ -8,9 +8,9 @@
     <title>Tool</title>
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/menu/tools/tools.css' %}">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-
+    <link rel="stylesheet" href="{% static 'css/menu/tools/tools.css' %}">
     
 </head>
 <body>
@@ -19,7 +19,7 @@
         <div class="menu-container">
             <div class='left-bar'>
                 <div class='img-bar'>
-                    <a href="/"}">
+                    <a href="/">
                         <img src="{% static 'image/logo.png' %}" alt="Logo">
                     </a>
                 </div>
@@ -40,16 +40,22 @@
                     </div>
                 </div>
             </div>
-            <div class="content-tool">
-                <table class="table-tool">
+            <div class="content-tool" id="content-tool">
+                <div class="skill">
+                    <div class="outer">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+
+
+                <!-- <table class="table-tool">
                     <tr class="row-0 border-bottom-rows">
                         <td class="col-tool border-right-col">
-                            <i class="far fa-clock"></i>
-                            <p>Tic Tac</p>
+                            <p class="tool-name">Daijoubu</p>
+                            <p><em>Mô tả</em>: Khi nhấn vào nút này, mọi thứ thuộc về bạn sẽ daijoubu ngay và luôn.</p>
                         </td>
                         <td class="col-tool">
-                            <i class="far fa-keyboard"></i>
-                            <p>Click</p>
+                            <button onclick="daijoubuStart()">Daijoubu</button>
                         </td>
                     </tr>
                     <tr class="row-0 border-bottom-rows">
@@ -82,9 +88,11 @@
                             <p>Click</p>
                         </td>
                     </tr>
-                </table>
+                </table> -->
             </div>
         </div>
     </div>
 </body>
 </html>
+
+<script src="{% static 'js/tools.js' %}"></script>

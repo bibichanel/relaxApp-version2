@@ -48,7 +48,7 @@
                     <p id="music-artist">{{item.artist}}</p>
 
                     <div class="lecteur">
-                        <audio class="fc-media" style="width: 100%;">
+                        <audio class="fc-media" style="width: 100%;" autoplay>
                             <source src="{% if item.audio_file %}{{item.audio_file.url}} {% else %} {{item.audio_link}} {% endif %}" type="audio/mp3" />
                         </audio>
                     </div>
@@ -89,4 +89,4 @@
 <!-- partial -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js"></script>
-<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/music.js' %}"></script>
