@@ -19,10 +19,6 @@ class MenuClass(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, "menu/homeMenu.html")
 
-class ChatClass(LoginRequiredMixin, View):
-    def get(self, request):
-        return render(request, "menu/chat/chat.html")
-
 from django.core.paginator import Paginator
 from relax.models import Song
 
