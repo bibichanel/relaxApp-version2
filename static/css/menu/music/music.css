@@ -215,18 +215,6 @@
     word-break: keep-all;
 }
 
-#prev-pause-resume-next-btn {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-
-    /* display: inline; */
-    width: 100%;
-    margin: 15% auto 1%;
-}
-
 .music-dashboard-btn {
     width: 50px;
     height: 50px;
@@ -299,10 +287,9 @@
     border: 0;
     font-family: FontAwesome;
     font-size: 10px;
-    /* color: #5bbb95; */
     color: #5bbb95;
     background: transparent;
-    background-color: none;
+    /* background-color: none; */
     border: 2px solid #5bbb95;
     padding: 0px;
     margin: 0;
@@ -566,10 +553,12 @@
     color: #251c1bc7;
     font-weight: bold;
     word-wrap: break-word;
+    word-break: keep-all;
 }
 
 #song-srtist {    
     word-wrap: break-word;
+    word-break: keep-all;
     color: gray;
 }
 
