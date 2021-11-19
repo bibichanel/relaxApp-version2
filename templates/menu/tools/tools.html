@@ -16,8 +16,8 @@
 <body>
 
     <div class="content">
-        <div class="menu-container">
-            <div class='left-bar'>
+        <div class="menu-container" id="menu-container">
+            <div class='left-bar' id="left-bar">
                 <div class='img-bar'>
                     <a href="/">
                         <img src="{% static 'image/logo.png' %}" alt="Logo">
@@ -40,55 +40,88 @@
                     </div>
                 </div>
             </div>
-            <div class="content-tool" id="content-tool">
-                <div class="skill">
-                    <div class="outer">
-                        <div class="inner"></div>
+
+            <!-- Prepare for tool 1 -->
+            <!-- Process bar -->
+            <div class="process-bar" id="process-bar">
+                <div class="outer" id="outer">
+                    <div class="inner" id="inner">
+                        <div id="percent"></div>
                     </div>
                 </div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svg-circle" width="160px" height="160px">
+                    <defs id="defs">
+                        <linearGradient id="GradientColor">
+                            <stop offset="0%" stop-color="#e91e63" />
+                            <stop offset="100%" stop-color="#673ab7" />
+                        </linearGradient>
+                    </defs>
+                    <circle id="circle" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    <animate xlink:href="#circle" attributeType="CSS" attributeName="stroke-dashoffset"
+                        from="calc(2 * 3.14159265 * 70)" to="0" dur="1s" begin="click" fill="freeze" id="circle-anim" />
+                </svg>
+            </div>
+            <!-- Announcement -->
+            <div id="daijoubu-announcement">
+                <p id="daijoubu-announcement-state">Success!</p>
+                <p id="daijoubu-announcement-content">Mong ước của bạn đã trở thành hiện thực. Nếu nó không trở thành hiện thực, bạn hãy thử lại lần nữa đi.</p>
+                <button id="daijoubu-announcement-close-btn">Close</button>
+            </div>
 
-
-                <!-- <table class="table-tool">
+            <div class="content-tool" id="content-tool">
+                <!-- Khu vực các tool -->
+                <table class="table-tool">
+                    <!-- Tool 1 -->
                     <tr class="row-0 border-bottom-rows">
                         <td class="col-tool border-right-col">
-                            <p class="tool-name">Daijoubu</p>
-                            <p><em>Mô tả</em>: Khi nhấn vào nút này, mọi thứ thuộc về bạn sẽ daijoubu ngay và luôn.</p>
+                            <p class="tool-name">Wish Realing</p>
+                            <p><em>Mô tả</em>: Nhấn vào chiếc hộp này trong khi đang nghĩ về thứ bạn cần và bạn sẽ có được nó.</p>
                         </td>
                         <td class="col-tool">
-                            <button onclick="daijoubuStart()">Daijoubu</button>
+                            <button type="button" id="daijoubu-btn">
+                                <div class="cube">
+                                    <div class="top"></div>
+                                    <div>
+                                        <span style="--i:0;"></span>
+                                        <span style="--i:1;"></span>
+                                        <span style="--i:2;"></span>
+                                        <span style="--i:3;"></span>
+                                    </div>
+                                </div>
+                            </button>
                         </td>
                     </tr>
-                    <tr class="row-0 border-bottom-rows">
-                        <td class="col-tool border-right-col">
-                            <i class="far fa-clock"></i>
-                            <p>Tic Tac</p>
-                        </td>
-                        <td class="col-tool">
-                            <i class="far fa-keyboard"></i>
-                            <p>Click</p>
-                        </td>
-                    </tr>
-                    <tr class="row-0 border-bottom-rows">
-                        <td class="col-tool border-right-col">
-                            <i class="far fa-clock"></i>
-                            <p>Tic Tac</p>
-                        </td>
-                        <td class="col-tool">
-                            <i class="far fa-keyboard"></i>
-                            <p>Click</p>
-                        </td>
-                    </tr >
-                    <tr class="row-0">
-                        <td class="col-tool border-right-col">
-                            <i class="far fa-clock"></i>
-                            <p>Tic Tac</p>
-                        </td>
-                        <td class="col-tool">
-                            <i class="far fa-keyboard"></i>
-                            <p>Click</p>
-                        </td>
-                    </tr>
-                </table> -->
+                            <!-- <tr class="row-0 border-bottom-rows">
+                                                    <td class="col-tool border-right-col">
+                                                        <i class="far fa-clock"></i>
+                                                        <p>Tic Tac</p>
+                                                    </td>
+                                                    <td class="col-tool">
+                                                        <i class="far fa-keyboard"></i>
+                                                        <p>Click</p>
+                                                    </td>
+                                                </tr>
+                                                <tr class="row-0 border-bottom-rows">
+                                                    <td class="col-tool border-right-col">
+                                                        <i class="far fa-clock"></i>
+                                                        <p>Tic Tac</p>
+                                                    </td>
+                                                    <td class="col-tool">
+                                                        <i class="far fa-keyboard"></i>
+                                                        <p>Click</p>
+                                                    </td>
+                                                </tr >
+                                                <tr class="row-0">
+                                                    <td class="col-tool border-right-col">
+                                                        <i class="far fa-clock"></i>
+                                                        <p>Tic Tac</p>
+                                                    </td>
+                                                    <td class="col-tool">
+                                                        <i class="far fa-keyboard"></i>
+                                                        <p>Click</p>
+                                                    </td>
+                                                </tr> -->
+                </table>
             </div>
         </div>
     </div>

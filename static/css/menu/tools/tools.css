@@ -15,6 +15,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .left-bar{
@@ -115,4 +120,214 @@
     font-weight: bold;
 }
 
+/* Tool 1 */
+/* Process bar */
+.process-bar {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    /* position: absolute !important; */
+    /* top: 35%;
+    left: 55%; */
+    /* display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center; */    
+}
+#process-bar {
+    display: none;
+}
+.outer {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+                -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+.inner {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+                inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+                -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+                0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+                0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+}
+/* #percent {
+    font-weight: 600px;
+    color: #555;
+} */
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+circle {
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: calc(2 * 3.14159265 * 70);
+    stroke-dashoffset: calc(2 * 3.14159265 * 70);
+    transition: stroke-dashoffset 1s linear;    
+}
 
+/* #a:checked + #content-tool #process-bar svg #circle {
+    stroke-dashoffset: 0;
+} */
+
+#daijoubu-btn {
+    min-height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    margin: auto;
+}
+.cube {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    transform-style: preserve-3d;
+    animation: animate 4s linear infinite;
+    /* left: 100px; */
+}
+@keyframes animate {
+    0% {
+        transform: rotateX(-30deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(-30deg) rotateY(360deg);
+    }
+}
+.cube div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+.cube div span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#151515, #00ec00);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(15px);
+    /* 300 / 2 = 150 */
+}
+.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: #222;
+    transform: rotateX(90deg) translateZ(15px);
+}
+.top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: #0f0;
+    transform: translateZ(-58px);
+    filter: blur(20px);
+    box-shadow: 0 0 120px rgba(0, 255, 0, 0.2),
+                0 0 200px rgba(0, 255, 0, 0.2),
+                0 0 300px rgba(0, 255, 0, 0.2),
+                0 0 400px rgba(0, 255, 0, 0.2),
+                0 0 500px rgba(0, 255, 0, 0.4);
+}
+
+#daijoubu-announcement {
+    position: absolute;
+    min-width: 20%;
+    max-width: 50%;
+    min-height: 10%;
+    background: none;
+
+    border-radius: 30px;
+    border: 5px double #5bbb95;
+
+    padding: 30px 70px;
+    display: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: rgba(236, 232, 232, 0.795);
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.5),
+        -15px -15px 30px rgba(0, 0, 0, 0.2);
+
+    animation: wipe-enter 1s;
+}
+
+@keyframes wipe-enter {
+	0% {
+		transform: scale(0, .025);
+	}
+	50% {
+		transform: scale(1, .025);
+	}
+}
+
+#daijoubu-announcement p {
+    text-align: center;
+    word-wrap: break-word;
+    word-break: keep-all;
+	line-height: 1.5;
+
+    background-image: url("https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+	color: transparent;
+	-moz-background-clip: text;
+	-webkit-background-clip: text;
+}
+
+#daijoubu-announcement-state {
+    font-weight: bold;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: x-large;
+}
+
+#daijoubu-announcement-content {
+    margin-top: 30px;
+}
+
+#daijoubu-announcement-close-btn {
+    margin-top: 30px;
+    width: 30%;
+    padding: 5px 0;
+    outline: none;
+    border-radius: 50px;
+    border: 1px solid #5bbb95;
+    
+    font-size: medium;    
+
+    box-shadow: -15px -15px 30px rgba(255, 255, 255, 0.75),
+                15px 15px 30px rgba(0, 0, 0, 0.5),
+                inset -2px -2px 5px rgba(255, 255, 255, 0.75),
+                inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+    cursor: pointer;
+}
