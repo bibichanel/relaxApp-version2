@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'relax.apps.RelaxConfig',
     'channels',
     'chat',
+    'image',
 ]
 
 MIDDLEWARE = [

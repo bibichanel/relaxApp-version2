@@ -37,6 +37,3 @@ class ToolsClass(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, "menu/tools/tools.html")
 
-class ImageClass(LoginRequiredMixin, View):
-    def get(self, request):
-        return render(request, "menu/image/image.html")
