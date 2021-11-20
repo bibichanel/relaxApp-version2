@@ -105,6 +105,10 @@
     width: 80%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 #music-dashboard {
@@ -489,6 +493,8 @@
 
 /* music list */
 #music-list {
+    top: 10px;
+
     width: 50%;
     height: 100%;
 

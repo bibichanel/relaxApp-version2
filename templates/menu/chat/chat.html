@@ -8,25 +8,48 @@
     <title>Chat</title>
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/menu/chat/chat.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/menu/chat/chat.css' %}">
 </head>
 <body>
     <div class='container'>
         <div class='container-logo'>
-            <img src="{% static 'image/logoChat.png' %}" alt="Logo"> 
+            <img src="{% static 'image/logoChat.png' %}" alt="Logo">
         </div>
         <div class='container-music'>
-            <div class='quick-player'>
-                <i class="fas fa-volume-up"></i>
-                <i class="fas fa-step-backward"></i>
-                <i class="fas fa-play"></i>
-                <i class="fas fa-pause"></i>
-                <i class="fas fa-step-forward"></i>
-            </div>
-            <div class='music-content'>
-                <h2>You are listening to the song: Đừng ai nhắc về cô ấy - Phạm anh quân</h2>
-            </div>
+            {% for item in page_obj %}
+                <div class='quick-player'>                
+                    <div class="lecteur">
+                        <!-- Cách 1 -->
+                        <audio class="fc-media" id="myAudio" style="width: 100%;" src="{% if item.audio_file %}{{item.audio_file.url}} {% else %} {{item.audio_link}} {% endif %}" autoplay>
+                        </audio>
+
+                        <!-- Cách 2 -->
+                        <!-- <audio class="fc-media" id="myAudio" style="width: 100%;" autoplay>
+                            <source src="{% if item.audio_file %}{{item.audio_file.url}} {% else %} {{item.audio_link}} {% endif %}" type="audio/mp3" />
+                        </audio> -->
+                    </div>
+                    <div id="another-audio-btn">
+                        <a href="{% if page_obj.has_previous %}?page={{ page_obj.previous_page_number }}{% endif %}">
+                            <i class="fas fa-step-backward" id="song-previous-btn"></i>
+                        </a>
+                        <i class="fas fa-play" id="play-btn"></i>
+                        <i class="fas fa-pause" id="pause-btn"></i>
+                        <a href="{% if page_obj.has_next %}?page={{ page_obj.next_page_number }} {% endif %}">
+                            <i class="fas fa-step-forward" id="song-forward-btn"></i>
+                        </a>
+                    </div>                    
+                </div>
+                <!-- <div class='quick-player'>
+                    <i class="fas fa-volume-up"></i>
+                    <i class="fas fa-step-backward"></i>
+                    <i class="fas fa-step-forward"></i>
+                </div> -->
+                <div class='music-content'>
+                    <h2>You are listening to the song: {{ item.title }} - {{ item.artist }}</h2>
+                </div>
+            {% endfor %}
         </div>
         <!-- ------------------------------------------------------------ -->
         <div class='container-main'>
@@ -94,7 +117,7 @@
              <!-- --------------------------------frame chat---------------------------- -->
             <div class='container-chat'>
                 <div class='header-chat'>
-                    <div class='logo-chat'>  
+                    <div class='logo-chat'>
                         <i class="far fa-comments"></i>
                     </div>
                     <div class='name-room'>
@@ -174,7 +197,7 @@
             let string_of_html_messager = null;
             if(data.message){
                 if(data.nickname == _nickname){
-                    string_of_html_messager = 
+                    string_of_html_messager =
                     `
                     <div class="massage-outgoing">
                         <div class="container-name-detail">
@@ -200,7 +223,7 @@
                     </div>
                     `;
                 }
-                
+
                 document.querySelector('#chat-messages').innerHTML += string_of_html_messager;
             }
             else{
@@ -232,3 +255,7 @@
     </script>
 </body>
 </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'js/chat.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js"></script>

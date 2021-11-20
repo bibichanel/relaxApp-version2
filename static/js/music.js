@@ -11,7 +11,7 @@ var audio = {
             if (media.length) {
                 media.mediaelementplayer({
                     audioHeight: 100,
-                    features: ['playpause', 'current', 'duration', 'progress', 'volume', 'tracks', 'fullscreen'],
+                    features: ['playpause', 'current', 'duration', 'progress', 'volume', 'tracks', 'fullscreen'],                    
                     alwaysShowControls: true,
                     timeAndDurationSeparator: '<span></span>',
                     iPadUseNativeControls: true,
