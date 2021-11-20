@@ -66,6 +66,8 @@
 }
 .music-content h2{
     color: #A2A1FF;
+    font-size: medium;
+    overflow: hidden;
 }
 #another-audio-btn {
     width: 100%;
