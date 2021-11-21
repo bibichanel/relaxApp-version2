@@ -77,8 +77,8 @@ scrollToBottom();
 
 const _roomName = JSON.parse(document.getElementById('json-roomname').textContent);
 const _username = JSON.parse(document.getElementById('json-username').textContent);
-const _nickname = JSON.parse(document.getElementById('json-nickname').textContent);
-
+// const _nickname = 
+const _nickname = null;
 
 const chatSocket = new WebSocket(
     'ws://'
@@ -89,7 +89,12 @@ const chatSocket = new WebSocket(
 );
 chatSocket.onmessage = function(e){
     console.log('onmessage');
-
+    
+    if(_nickname == null){
+        alert("What is the nickname you use?");
+        return;
+    }
+    
     const data = JSON.parse(e.data);
 
     let string_of_html_messager = null;
@@ -132,11 +137,6 @@ chatSocket.onmessage = function(e){
 chatSocket.onclose = function(e) {
     console.log('The socket close');
 }
-// document.querySelector('#chat-massager-input').onkeyup = function(e) {
-//     if (e.keyCode === 13) {
-//             document.querySelector('#chat-massager-submit').click();
-//         }
-// };
 function keyEnterMessager(e){
     if(e.key === "Enter"){
         document.querySelector('#chat-massager-submit').click();
@@ -145,6 +145,11 @@ function keyEnterMessager(e){
 document.querySelector('#chat-massager-submit').onclick = function(e){
     const messageInputDom = document.querySelector('#chat-massager-input');
     const message = messageInputDom.value;
+
+    if(_nickname == null){
+        alert("What is the nickname you use?");
+        return;
+    }
 
     chatSocket.send(JSON.stringify({
         'message': message,
@@ -157,6 +162,31 @@ document.querySelector('#chat-massager-submit').onclick = function(e){
 };
 
 //-------------------------------------------Choose name--------------------------------------------
+function getNewName(){
+    var value = document.querySelector("#text-type").value;
+    if( value != null){
+        _nickname = value;
+    }else{
+        alert("Please enter your name");
+    };
+};
+document.querySelector("#old-name").onclick = function(){
+    var ischecked = document.querySelector("#old-name").checked;
+    if(ischecked == true){
+        _nickname = JSON.parse(document.getElementById('json-nickname').textContent);
+    }else{
+        alert('Chưa check')
+    }
+};
+document.querySelector("#check-new-name").onclick = function(){
+    var ischecked = document.querySelector("#check-new-name").checked;
+    if(ischecked == true){
+        getNewName();
+    }
+    else{
+        alert('Chưa check')
+    }
+};
 //-------------------------------------------image--------------------------------------------
 function changeBackgroundUser(_urlImg){
     document.getElementById('get-background').style.backgroundImage = "linear-gradient(rgba(40, 47, 65, 0.7), rgba(40, 47, 65, 0.7)),  url("+_urlImg+")";
