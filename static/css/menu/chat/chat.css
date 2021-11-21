@@ -259,35 +259,59 @@ table{
 /* ----------------Choose-background------------ */
 .choose-background{
     border-top: 1px solid rgba(255, 255, 255, 0.6);
-    min-height: 20vh;
-}
-.content-cb{
     text-align: center;
-    
 }
-.content-cb h3{
+.dropbtn{
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    padding: 9px;
+    font-size: 16px;
+    border-bottom: 2px solid #FFFFFF;
+    cursor: pointer;
+}
+/* Dùng trong <div> để định vị nội dung thả xuống */
+.dropdown {
+    position: relative;
     display: inline-block;
-    color: #FFFFFF;
-    font-size: 12pt;
-    font-weight: 400;
-    border-bottom: 3px solid #FFFFFF;
-    padding: 1vh 0;
+    text-align: center;
 }
-.drop-btn{
-    margin: 2vh 2vw;
-    background-color: transparent;
+  
+/* Nội dung thả xuống (Ẩn theo mặc định) */
+.dropdown-content {
+    display: none;
+    background-color: #e9d8f4;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    overflow-y: scroll;
+    height: 80px;
+    overflow-x: hidden;
+    max-width: 100%;    
 }
-.drop-btn input{
-    background-color: transparent;
-    outline: none;
-    border: none;
-    font-size: 15pt;
+  
+/* Liên kết bên trong danh sách thả xuống */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
-.drop-btn input::placeholder{
-    font-size: 15pt;
-    font-weight: 500;
-    color: #FFFFFF;
+  
+/* Thay đổi định dạng của liên kết thả xuống khi di chuột qua */
+.dropdown-content a:hover {
+    background-color: #5d6eb4;
+    color: white;
 }
+  
+/* Hiển thị menu thả xuống khi di chuột */
+  .dropdown:hover .dropdown-content {
+    display: block;
+}
+  
+/* Thay đổi màu nền của nút thả xuống khi nội dung được hiển thị */
+  .dropdown:hover .dropbtn {
+    background-color: #5d6eb4;
+  }
 /* ---------------------------frame Chat------------------------ */
 .container-chat{
     width: 55%;

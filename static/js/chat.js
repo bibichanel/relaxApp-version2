@@ -158,3 +158,9 @@ document.querySelector('#chat-massager-submit').onclick = function(e){
 
 //-------------------------------------------Choose name--------------------------------------------
 //-------------------------------------------image--------------------------------------------
+function changeBackgroundUser(_urlImg){
+    document.getElementById('get-background').style.backgroundImage = "linear-gradient(rgba(40, 47, 65, 0.7), rgba(40, 47, 65, 0.7)),  url('_urlImg')";
+    document.getElementById('get-background').style.backgroundRepeat = "no-repeat";
+    document.getElementById('get-background').style.backgroundSize = "cover";
+    alert(_urlImg)
+};

@@ -30,22 +30,24 @@ body{
 }
 /* -----------------------------box-image---------------------- */
 .box-image{
-    position: absolute;
-    top: 0;
-    padding-top: 10%;
-    text-align: center;
-    width: 100%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) -1.96%, rgba(6, 7, 13, 0.9) 8.11%);
-}
-.row-img{
     display: inline-flex;
-    width: 95%;
-    margin: 1vh 0;
+    flex-wrap: wrap;
+    position: absolute; 
+    top: 0;
+    padding-top: 10%;     
+    width: 100%;
+    justify-content: space-around;
+    background: linear-gradient(180deg, rgba(6, 7, 13, 0) 2.44%, rgba(6, 7, 13, 0.9) 7.52%);
 }
 .card{
+    margin: 12px 12px;
+    padding: 5px 5px;
+    background-color: #22272b;
     display: flex;
+    height: auto;
+    max-width: calc(100% - 57%);
 }
 .card img{
-    max-width: calc(100% - 60%);
+    max-width: 100%;
     height: auto;
 }

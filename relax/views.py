@@ -37,6 +37,7 @@ class ToolsClass(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, "menu/tools/tools.html")
 
+<<<<<<< HEAD
 class SnakeGameClass(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, "menu/tools/snakegame.html")
@@ -44,3 +45,5 @@ class SnakeGameClass(LoginRequiredMixin, View):
 class ImageClass(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, "menu/image/image.html")
+=======
+>>>>>>> dbebeb8ab646a7b874aa7db04f77aab557394562

@@ -4,6 +4,7 @@ from .models import Message
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from relax.models import Song
+from image.models import Image
 
 class ChatClass(LoginRequiredMixin, View):
     def get(self, request, room_name):
@@ -13,10 +14,13 @@ class ChatClass(LoginRequiredMixin, View):
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
 
+        images = Image.objects.all()
+
         context = {
             'room_name': room_name,
             'messages': messages,
-            "page_obj": page_obj,
+            'page_obj': page_obj,
+            'images': images,
         }
 
         return render(request, "menu/chat/chat.html",  context)
