@@ -18,11 +18,10 @@
         <div class="box-image">
             {% for item in images %}
                 <div class="card">
-                    <img src="{{item.photo.url}}" alt="">
+                    <img src="{{item.photo.url}}" alt="{{item.title}}">
                 </div>
-            {% endfor%}
+            {% endfor %}
         </div>
     </div>
-    
 </body>
 </html>
