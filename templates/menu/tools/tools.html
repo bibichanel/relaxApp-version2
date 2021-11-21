@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Tool</title>
 
     {% load static %}
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/menu/tools/tools.css' %}">
-    
 </head>
-<body>
 
+<body>
     <div class="content">
         <div class="menu-container" id="menu-container">
             <div class='left-bar' id="left-bar">
@@ -32,7 +32,7 @@
                             <h2>Tools</h2>
                             <p>Play To Relax</p>
                             <div class="btn-menu">
-                                <a style="text-decoration: none" href="{% url 'menu'%}" >
+                                <a style="text-decoration: none" href="{% url 'menu'%}">
                                     <button type="button"><span></span>Back ></button>
                                 </a>
                             </div>
@@ -64,18 +64,19 @@
             <!-- Announcement -->
             <div id="daijoubu-announcement">
                 <p id="daijoubu-announcement-state">Success!</p>
-                <p id="daijoubu-announcement-content">Mong ước của bạn đã trở thành hiện thực. Nếu nó không trở thành hiện thực, bạn hãy thử lại lần nữa đi.</p>
+                <p id="daijoubu-announcement-content">Mong ước của bạn đã trở thành hiện thực. Nếu nó không trở thành
+                    hiện thực, bạn hãy thử lại lần nữa đi.</p>
                 <button id="daijoubu-announcement-close-btn">Close</button>
             </div>
 
+            <!-- Bảng -->
             <div class="content-tool" id="content-tool">
-                <!-- Khu vực các tool -->
                 <table class="table-tool">
-                    <!-- Tool 1 -->
                     <tr class="row-0 border-bottom-rows">
                         <td class="col-tool border-right-col">
                             <p class="tool-name">Wish Realing</p>
-                            <p><em>Mô tả</em>: Nhấn vào chiếc hộp này trong khi đang nghĩ về thứ bạn cần và bạn sẽ có được nó.</p>
+                            <p><em>Mô tả</em>: Nhấn vào chiếc hộp này trong khi đang nghĩ về thứ bạn cần và bạn sẽ có
+                                được nó.</p>
                         </td>
                         <td class="col-tool">
                             <button type="button" id="daijoubu-btn">
@@ -91,41 +92,26 @@
                             </button>
                         </td>
                     </tr>
-                            <!-- <tr class="row-0 border-bottom-rows">
-                                                    <td class="col-tool border-right-col">
-                                                        <i class="far fa-clock"></i>
-                                                        <p>Tic Tac</p>
-                                                    </td>
-                                                    <td class="col-tool">
-                                                        <i class="far fa-keyboard"></i>
-                                                        <p>Click</p>
-                                                    </td>
-                                                </tr>
-                                                <tr class="row-0 border-bottom-rows">
-                                                    <td class="col-tool border-right-col">
-                                                        <i class="far fa-clock"></i>
-                                                        <p>Tic Tac</p>
-                                                    </td>
-                                                    <td class="col-tool">
-                                                        <i class="far fa-keyboard"></i>
-                                                        <p>Click</p>
-                                                    </td>
-                                                </tr >
-                                                <tr class="row-0">
-                                                    <td class="col-tool border-right-col">
-                                                        <i class="far fa-clock"></i>
-                                                        <p>Tic Tac</p>
-                                                    </td>
-                                                    <td class="col-tool">
-                                                        <i class="far fa-keyboard"></i>
-                                                        <p>Click</p>
-                                                    </td>
-                                                </tr> -->
+
+                    <tr class="row-0 border-bottom-rows">
+                        <td class="col-tool border-right-col">
+                            <img src="/static/image/snakegame-icon.png" alt="" id="snakegame-icon">
+                            <p>Snake Game</p>
+                        </td>
+                        <td class="col-tool">
+                            <a style="text-decoration: none" href="{% url 'snakegame' %}">
+                                <button id="play-btn">Play Snake Game</button>
+                            </a>
+                        </td>
+                    </tr>
+                    
+
                 </table>
             </div>
         </div>
     </div>
 </body>
-</html>
 
 <script src="{% static 'js/tools.js' %}"></script>
+
+</html>

@@ -1,3 +1,4 @@
+// Tool 1
 document.getElementById("daijoubu-btn").addEventListener('click', function() {    
     prepare();    
     processing();
@@ -48,7 +49,7 @@ function display_announcement() {
     document.getElementById("daijoubu-announcement").style.setProperty("z-index", "1000");
 }
 
-document.getElementById("daijoubu-announcement-close-btn").addEventListener('click', function() {    
+document.getElementById("daijoubu-announcement-close-btn").addEventListener('click', function() {
     document.getElementById("daijoubu-announcement").style.setProperty("display", "none");
 
     document.getElementById("content-tool").style.setProperty("-webkit-filter", "none");
@@ -60,4 +61,3 @@ document.getElementById("daijoubu-announcement-close-btn").addEventListener('cli
     document.getElementById("left-bar").style.setProperty("display", "block");
     document.getElementById("content-tool").style.setProperty("display", "block");
 });
-

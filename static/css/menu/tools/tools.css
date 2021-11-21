@@ -16,7 +16,7 @@
     background-size: cover;
     background-position: center;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
     align-items: center;
@@ -99,6 +99,7 @@
 }
 .col-tool{
     width: 50%;
+    position: relative;
 }
 .col-tool i{
     font-size: 45pt;
@@ -297,6 +298,7 @@ circle {
     background-size: cover;
     background-position: center;
 	color: transparent;
+    background-clip: text;
 	-moz-background-clip: text;
 	-webkit-background-clip: text;
 }
@@ -330,4 +332,57 @@ circle {
 
 button:hover {
     cursor: pointer;
+}
+
+#snakegame-icon {
+    width: 50px;
+    /* height: 50%; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#play-btn {
+    padding: 10px 20px;
+    outline: none;
+    border-radius: 50px;
+    border: 1px solid #5bbb95;
+
+    box-shadow: -15px -15px 30px rgba(255, 255, 255, 0.5),
+                15px 15px 30px rgba(0, 0, 0, 0.5),
+                inset -2px -2px 5px rgba(255, 255, 255, 0.75),
+                inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#play-btn:hover {
+    cursor: pointer;
+    background-image: url("https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+	color: transparent;
+    background-clip: text;
+    -moz-background-clip: text;
+	-webkit-background-clip: text;
+
+    animation: bupbup 1s linear 0s infinite;
+    -webkit-animation: bupbup 1s linear 0s infinite;
+    -moz-animation: bupbup 1s linear 0s infinite;
+    -o-animation: bupbup 1s linear 0s infinite;
+}
+
+@keyframes bupbup {
+    0% {
+        border-radius: 10px;
+        box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.5),
+                    -15px -15px 30px rgba(255, 255, 255, 0.5);
+    }
+}
+
+@-webkit-keyframes bupbup {
+    0% {
+        border-radius: 10px;
+        box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.5),
+                    -15px -15px 30px rgba(255, 255, 255, 0.5);
+    }
 }
