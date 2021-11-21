@@ -196,6 +196,13 @@ body {
 #game-over div {
     margin-top: 50px;
     width: 100%;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
 }
 
 #game-over div button {
