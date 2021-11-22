@@ -10,7 +10,6 @@ urlpatterns = [
     path('about-us/', views.AboutUsClass.as_view(), name='about-us'),
     path('menu/', views.MenuClass.as_view(), name='menu'),
     path('music/', views.MusicClass.as_view(), name='music'),
-    path('image/', views.ImageClass.as_view(), name='image'),
     path('tools/', views.ToolsClass.as_view(), name='tools'),
     path('tools/snakegame/', views.SnakeGameClass.as_view(), name='snakegame'),
 ]

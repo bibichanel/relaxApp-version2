@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <a style="text-decoration: none" href="{% url 'tools' %}">
+    <a style="text-decoration: none" href="{% url 'tools' %}" id="link-to-tools">
         <button id="back-to-tools">Back</button>
     </a>    
     <div id="settings-form">
@@ -31,14 +31,19 @@
         <button id="play-btn">Start</button>
     </div>
     <div id="snakegame">
-        <p id="current-score">Score: 0</p>
+        <div id="snakegame-scores">
+            <p id="current-score">Score: 0</p>
+            <p id="current-highest-score">Highest score: 0</p>
+        </div>
         <canvas id="snakeboard"></canvas>
     </div>
     <div id="game-over">
         <p id="game-over-title">Game Over</p>
-        <p id="total-score">Your current score: </p>
-        <!-- <p id="highest-score">Your highest score: </p> -->
-        <div>
+        <div id="game-over-scores">
+            <p id="total-score">Your score: </p>
+            <p id="total-highest-score">Your highest score: </p>
+        </div>        
+        <div id="btns">
             <button id="back-to-settings-btn">Back to Settings</button>
             <button id="replay-btn">Chơi lại</button>
         </div>

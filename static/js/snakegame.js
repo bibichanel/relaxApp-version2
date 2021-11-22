@@ -1,7 +1,7 @@
 const snakeboard = document.getElementById("snakeboard");
 const snakeboard_ctx = snakeboard.getContext("2d");
 
-let score = 0;
+let highestScore = 0;
 
 document.getElementById("play-btn").addEventListener("click", function() {    
     const width = document.getElementById("snakeboard_width").value;
@@ -19,6 +19,7 @@ document.getElementById("play-btn").addEventListener("click", function() {
         document.getElementById("snakegame").style.display = "flex";
         document.getElementById("snakegame").style.setProperty("z-index", "3");
 
+        
         start_snake_game();
     }
     else {
@@ -43,6 +44,9 @@ function check_valid_params(width, height) {
 }
 
 function start_snake_game() {
+    let score = 0;
+    document.getElementById("current-score").innerHTML = "Score: " + score;
+
     let snake = [
         { x: snakeboard.width / 2 - 00, y: snakeboard.height / 2 },
         // { x: snakeboard.width / 2 - 10, y: snakeboard.height / 2 },
@@ -50,7 +54,7 @@ function start_snake_game() {
         // { x: snakeboard.width / 2 - 30, y: snakeboard.height / 2 },
         // { x: snakeboard.width / 2 - 40, y: snakeboard.height / 2 },
     ]
-
+    
     let changingDirection = false;
     let dx = 10;
     let dy = 0;
@@ -64,11 +68,11 @@ function start_snake_game() {
             document.getElementById("game-over").style.display = "flex";
             document.getElementById("game-over").style.setProperty("z-index", "3");
 
-            document.getElementById("total-score").innerHTML = "Your current score: " + score;
-            // document.getElementById("highest-score").innerHTML = "Your highest score: " + highestScore;
+            document.getElementById("total-score").innerHTML = "Your score: " + score;
+            document.getElementById("total-highest-score").innerHTML = "Your highest score: " + highestScore;
 
             return;
-        }        
+        }
     
         changingDirection = false;
     
@@ -205,8 +209,6 @@ function start_snake_game() {
         snakeboard_ctx.stroke();
         snakeboard_ctx.closePath();
     }
-
-    
     
     function move_snake() {
         const head = {
@@ -218,9 +220,10 @@ function start_snake_game() {
         if (isSnakeEatFood) {
             score += 1;
             document.getElementById("current-score").innerHTML = "Score: " + score;
-            // if (!highestScore) {
-                
-            // }
+            if (score > highestScore) {
+                highestScore = score;
+                document.getElementById("current-highest-score").innerHTML = "Highest score: " + highestScore;
+            }
             gen_food();
         } else {
             snake.pop();
@@ -228,7 +231,7 @@ function start_snake_game() {
     }
 }
 
-document.getElementById("back-to-settings-btn").addEventListener("click", function() {    
+document.getElementById("back-to-settings-btn").addEventListener("click", function() {
     document.getElementById("game-over").style.display = "none";
     document.getElementById("snakegame").style.display = "none";
     document.getElementById("settings-form").style.display = "flex";

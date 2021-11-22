@@ -121,12 +121,27 @@ body {
     transform: translate(-50%, -50%);
 }
 
-#snakegame #current-score {
-    text-align: center;
+#snakegame-scores {
     position: absolute;
     top: 10px;
     left: 50%;
     transform: translate(-50%, 0);
+
+    border-bottom: 2px solid #5bbb95;
+    
+    width: 80%;
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+#snakegame-scores p {
+    font-weight: bold;
+    font-size: large;
+    padding-bottom: 10px;
+    text-align: center;
 
     background-image: url("https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif");
     background-repeat: no-repeat;
@@ -136,12 +151,6 @@ body {
     background-clip: text;
     -moz-background-clip: text;
 	-webkit-background-clip: text;
-
-    padding-bottom: 10px;
-    border-bottom: 2px solid #5bbb95;
-    font-weight: bold;
-    font-size: large;
-    width: 80%;
 }
 
 #game-over {
@@ -187,13 +196,26 @@ body {
 	-webkit-background-clip: text;
 }
 
+#game-over-scores {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
 #total-score {
     text-align: center;
     font-size: medium;
     margin-top: 20px;
 }
 
-#game-over div {
+#total-highest-score {
+    margin-top: 20px;
+}
+
+#game-over #btns {
     margin-top: 50px;
     width: 100%;
 
@@ -216,10 +238,14 @@ body {
     margin-left: 50px;
 }
 
+#link-to-tools {
+    z-index: 4;
+}
+
 #back-to-tools {
     padding: 5px 20px;
     outline: none;
-    border-radius: 50px;
+    border-radius: 0 0 20px 0;
     border: 1px solid #5bbb95;
     position: absolute;
 
