@@ -76,11 +76,42 @@ function scrollToBottom(){
 scrollToBottom();
 
 const _roomName = JSON.parse(document.getElementById('json-roomname').textContent);
+var _nickname = assignValue();
 const _username = JSON.parse(document.getElementById('json-username').textContent);
-// const _nickname = 
-const _nickname = null;
+// const _nickname = JSON.parse(document.getElementById('json-nickname').textContent);
+//-------------------------------------------Choose name--------------------------------------------
+function assignValue(){
+    if(document.getElementById('old-name').checked){
+        document.querySelector("#old-name").click;
+    };
+    if(document.getElementById('check-new-name').checked){
+        document.querySelector("#check-new-name").click;
+    };
+    return undefined;
+};
+function useNewname(){
+    if(document.getElementById('check-new-name').checked != true){
+        alert('You must check in: Use a different name.')
+        return;
+    }
+    var value = document.querySelector("#text-type").value;
+    if(value == null || value == '' || value == undefined){
+        return;
+    }else{
+        alert('New name: ' + value)
+        _nickname = value;
+    };
+};
+document.querySelector("#old-name").onclick = function(){
+    alert('Use nickname default')
+    _nickname = JSON.parse(document.getElementById('json-nickname').textContent);
+};
+document.querySelector("#check-new-name").onclick = function(){
+    useNewname()
+};
+//----------------------------------------------------------------------------
 
-const chatSocket = new WebSocket(
+var chatSocket = new WebSocket(
     'ws://'
     + window.location.host
     + '/ws/'
@@ -90,12 +121,13 @@ const chatSocket = new WebSocket(
 chatSocket.onmessage = function(e){
     console.log('onmessage');
     
-    if(_nickname == null){
-        alert("What is the nickname you use?");
-        return;
-    }
-    
-    const data = JSON.parse(e.data);
+    // alert('Nick name of you: ' + _nickname)
+    // if(_nickname == null || _nickname == undefined){
+    //     alert("What is the nickname you use?");
+    //     return;
+    // }
+
+    var data = JSON.parse(e.data);
 
     let string_of_html_messager = null;
     if(data.message){
@@ -143,13 +175,14 @@ function keyEnterMessager(e){
     }
 };
 document.querySelector('#chat-massager-submit').onclick = function(e){
-    const messageInputDom = document.querySelector('#chat-massager-input');
-    const message = messageInputDom.value;
+    var messageInputDom = document.querySelector('#chat-massager-input');
+    var message = messageInputDom.value;
 
-    if(_nickname == null){
-        alert("What is the nickname you use?");
-        return;
-    }
+    // alert('Nick name of you: ' + _nickname)
+    // if(_nickname == null || _nickname == undefined){
+    //     alert("What is the nickname you use?");
+    //     return;
+    // }
 
     chatSocket.send(JSON.stringify({
         'message': message,
@@ -161,32 +194,6 @@ document.querySelector('#chat-massager-submit').onclick = function(e){
     messageInputDom.value = ''
 };
 
-//-------------------------------------------Choose name--------------------------------------------
-function getNewName(){
-    var value = document.querySelector("#text-type").value;
-    if( value != null){
-        _nickname = value;
-    }else{
-        alert("Please enter your name");
-    };
-};
-document.querySelector("#old-name").onclick = function(){
-    var ischecked = document.querySelector("#old-name").checked;
-    if(ischecked == true){
-        _nickname = JSON.parse(document.getElementById('json-nickname').textContent);
-    }else{
-        alert('Chưa check')
-    }
-};
-document.querySelector("#check-new-name").onclick = function(){
-    var ischecked = document.querySelector("#check-new-name").checked;
-    if(ischecked == true){
-        getNewName();
-    }
-    else{
-        alert('Chưa check')
-    }
-};
 //-------------------------------------------image--------------------------------------------
 function changeBackgroundUser(_urlImg){
     document.getElementById('get-background').style.backgroundImage = "linear-gradient(rgba(40, 47, 65, 0.7), rgba(40, 47, 65, 0.7)),  url("+_urlImg+")";

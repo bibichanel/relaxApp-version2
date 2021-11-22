@@ -224,6 +224,7 @@ form{
     color: #FFFFFF;
     font-size: 15pt;
     font-weight: 600;
+    cursor: pointer;
 }
 /* ----------------Frame-users------------ */
 .frame-user{
@@ -280,13 +281,15 @@ table{
 /* Nội dung thả xuống (Ẩn theo mặc định) */
 .dropdown-content {
     display: none;
-    background-color: #e9d8f4;
+    background-color:linear-gradient(rgba(40, 47, 65, 0.7), rgba(40, 47, 65, 0.7));
+    /* background-color: #e9d8f4; */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     overflow-y: scroll;
     height: 80px;
     overflow-x: hidden;
     max-width: 100%;    
+    padding: 0 auto;
 }
   
 /* Liên kết bên trong danh sách thả xuống */
@@ -435,6 +438,7 @@ table{
 }
 .btn-messager-submit{
     width: 10%;
+    cursor: pointer;
 }
 .btn-messager-submit i{
     font-size: 30pt;
