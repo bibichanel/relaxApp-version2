@@ -76,11 +76,42 @@ function scrollToBottom(){
 scrollToBottom();
 
 const _roomName = JSON.parse(document.getElementById('json-roomname').textContent);
+var _nickname = assignValue();
 const _username = JSON.parse(document.getElementById('json-username').textContent);
-const _nickname = JSON.parse(document.getElementById('json-nickname').textContent);
+// const _nickname = JSON.parse(document.getElementById('json-nickname').textContent);
+//-------------------------------------------Choose name--------------------------------------------
+function assignValue(){
+    if(document.getElementById('old-name').checked){
+        document.querySelector("#old-name").click;
+    };
+    if(document.getElementById('check-new-name').checked){
+        document.querySelector("#check-new-name").click;
+    };
+    return undefined;
+};
+function useNewname(){
+    if(document.getElementById('check-new-name').checked != true){
+        alert('You must check in: Use a different name.')
+        return;
+    }
+    var value = document.querySelector("#text-type").value;
+    if(value == null || value == '' || value == undefined){
+        return;
+    }else{
+        alert('New name: ' + value)
+        _nickname = value;
+    };
+};
+document.querySelector("#old-name").onclick = function(){
+    alert('Use nickname default')
+    _nickname = JSON.parse(document.getElementById('json-nickname').textContent);
+};
+document.querySelector("#check-new-name").onclick = function(){
+    useNewname()
+};
+//----------------------------------------------------------------------------
 
-
-const chatSocket = new WebSocket(
+var chatSocket = new WebSocket(
     'ws://'
     + window.location.host
     + '/ws/'
@@ -89,8 +120,14 @@ const chatSocket = new WebSocket(
 );
 chatSocket.onmessage = function(e){
     console.log('onmessage');
+    
+    // alert('Nick name of you: ' + _nickname)
+    // if(_nickname == null || _nickname == undefined){
+    //     alert("What is the nickname you use?");
+    //     return;
+    // }
 
-    const data = JSON.parse(e.data);
+    var data = JSON.parse(e.data);
 
     let string_of_html_messager = null;
     if(data.message){
@@ -132,19 +169,20 @@ chatSocket.onmessage = function(e){
 chatSocket.onclose = function(e) {
     console.log('The socket close');
 }
-// document.querySelector('#chat-massager-input').onkeyup = function(e) {
-//     if (e.keyCode === 13) {
-//             document.querySelector('#chat-massager-submit').click();
-//         }
-// };
 function keyEnterMessager(e){
     if(e.key === "Enter"){
         document.querySelector('#chat-massager-submit').click();
     }
 };
 document.querySelector('#chat-massager-submit').onclick = function(e){
-    const messageInputDom = document.querySelector('#chat-massager-input');
-    const message = messageInputDom.value;
+    var messageInputDom = document.querySelector('#chat-massager-input');
+    var message = messageInputDom.value;
+
+    // alert('Nick name of you: ' + _nickname)
+    // if(_nickname == null || _nickname == undefined){
+    //     alert("What is the nickname you use?");
+    //     return;
+    // }
 
     chatSocket.send(JSON.stringify({
         'message': message,
@@ -156,7 +194,6 @@ document.querySelector('#chat-massager-submit').onclick = function(e){
     messageInputDom.value = ''
 };
 
-//-------------------------------------------Choose name--------------------------------------------
 //-------------------------------------------image--------------------------------------------
 function changeBackgroundUser(_urlImg){
     document.getElementById('get-background').style.backgroundImage = "linear-gradient(rgba(40, 47, 65, 0.7), rgba(40, 47, 65, 0.7)),  url("+_urlImg+")";

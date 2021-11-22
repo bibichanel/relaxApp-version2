@@ -59,16 +59,16 @@
                 <div class='tool-choose-name'>
                     <form action=".">
                         <div class="choose">
-                            <input type="radio"  name="choose01" value="Nickname" checked>
+                            <input type="radio" id="old-name" name="choose01" value="Nickname">
                             <label for="choose01">Use your nickname</label><br>
                         </div>
                         <div class='choose'>
-                            <input type="radio"  name="choose01" value="NewName">
+                            <input type="radio" id="check-new-name" name="choose01" value="NewName">
                             <label for="choose01">Use a different name</label><br>
                         </div>
                         <div class='type-sub'>
-                            <input id='text-type' type="text" for='choose01' placeholder="Type new name">
-                            <button id='sub-type'>Use</button>
+                            <input id='text-type' type="text"  placeholder="Type new name">
+                            <button id='sub-type' type="button"  onclick="useNewname()">Use</button>
                         </div>
                       </form>
                 </div>
