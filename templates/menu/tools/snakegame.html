@@ -16,35 +16,35 @@
 
 <body>
     <a style="text-decoration: none" href="{% url 'tools' %}" id="link-to-tools">
-        <button id="back-to-tools">Back</button>
+        <button id="back-to-tools">Quay lại</button>
     </a>    
     <div id="settings-form">
-        <p>Settings</p>
+        <p>Cài đặt</p>
         <div>
-            <label for="snakeboard_width">Width:</label>
+            <label for="snakeboard_width">Rộng:</label>
             <input type="number" id="snakeboard_width" name="width" min="400" max="1300">
         </div>
         <div>
-            <label for="snakeboard_height">Height:</label>
+            <label for="snakeboard_height">Cao:</label>
             <input type="number" id="snakeboard_height" name="height" min="200" max="500">
         </div>        
-        <button id="play-btn">Start</button>
+        <button id="play-btn">Bắt đầu</button>
     </div>
     <div id="snakegame">
         <div id="snakegame-scores">
-            <p id="current-score">Score: 0</p>
-            <p id="current-highest-score">Highest score: 0</p>
+            <p id="current-score">Điểm: 0</p>
+            <p id="current-highest-score">Điểm cao nhất: 0</p>
         </div>
         <canvas id="snakeboard"></canvas>
     </div>
     <div id="game-over">
-        <p id="game-over-title">Game Over</p>
+        <p id="game-over-title">Tạch rồi nhá~</p>
         <div id="game-over-scores">
-            <p id="total-score">Your score: </p>
-            <p id="total-highest-score">Your highest score: </p>
+            <p id="total-score">Điểm: </p>
+            <p id="total-highest-score">Điểm cao nhất: </p>
         </div>        
         <div id="btns">
-            <button id="back-to-settings-btn">Back to Settings</button>
+            <button id="back-to-settings-btn">Quay về cài đặt</button>
             <button id="replay-btn">Chơi lại</button>
         </div>
     </div>
