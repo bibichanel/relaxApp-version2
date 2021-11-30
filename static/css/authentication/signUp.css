@@ -53,3 +53,32 @@
     font-weight: 600;
     padding: 12px 90px;
 }
+
+@media (max-width: 600px) {
+    .btn {
+        font-size: 10pt;
+        margin-top: 3%;
+    }
+
+    .content-form-signup h2 {
+        font-size: 20pt;
+    }
+
+    .fa.fa-user.icon, .fa.fa-key.icon {
+        display: none;
+    }
+
+    .content-form-signup {
+        width: 90%;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .input-container-signup {
+        margin-top: 3%;
+    }
+
+    .input-container-signup input {
+        width: 90%;
+    }
+}

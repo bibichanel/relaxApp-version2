@@ -49,3 +49,27 @@
     font-size: 12pt;
     font-weight: 600;
 }
+
+@media (max-width: 499px) {
+    .container-form {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .content-form {
+        width: 90%;
+        height: fit-content;
+    }
+
+    .content-form h2 {
+        font-size: 20pt;
+    }
+
+    .input-container {
+        margin-top: 5%;
+    }
+
+    .fa.fa-user.icon, .fa.fa-key.icon {
+        display: none;
+    }
+}

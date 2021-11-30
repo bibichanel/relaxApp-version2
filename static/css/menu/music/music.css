@@ -22,9 +22,9 @@
     position: relative;
 }
 .img-bar{
-    margin: 30px auto;
-    width: 50%;
-    
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
 }
 
 .menu-bar{
@@ -604,6 +604,63 @@
     background-size: 24px;
 } */
 
+
+@media (max-width: 1000px) {
+    .menu-container {
+        display: block;
+    }
+
+    .item-icon {
+        display: none;
+    }
+
+    .left-bar {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+
+    .img-bar {
+        width: fit-content;
+        margin: 0;
+    }
+
+    .img-bar a img {
+        width: 50%;
+    }
+
+    .item-container {
+        position: unset;
+        top: 0;
+        width: unset;
+    }
+
+    .btn-menu {
+        margin-top: 0;
+        margin: 0;
+        display: block;
+        width: 30%;
+    }
+
+    #music-container {
+        width: 100%;
+        height: 90%;
+    }    
+
+    #music-list {
+        width: 50%;
+        height: 100%;
+    }
+    
+    .btn-menu a button {
+        font-size: 15pt;
+    }
+
+}
 
 
 

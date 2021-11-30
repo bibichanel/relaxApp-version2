@@ -17,7 +17,7 @@ function prepare() {
 }
 
 function processing() {
-    document.getElementById("process-bar").style.setProperty("display", "block");
+    document.getElementById("process-bar").style.setProperty("display", "flex");
 
     document.getElementById("circle-anim").beginElement();
 
@@ -58,6 +58,6 @@ document.getElementById("daijoubu-announcement-close-btn").addEventListener('cli
     document.getElementById("content-tool").style.setProperty("-o-filter", "none");
     document.getElementById("content-tool").style.setProperty("filter", "none");
 
-    document.getElementById("left-bar").style.setProperty("display", "block");
+    document.getElementById("left-bar").style.setProperty("display", "flex");
     document.getElementById("content-tool").style.setProperty("display", "block");
 });

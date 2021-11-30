@@ -253,4 +253,19 @@ body {
                 15px 15px 30px rgba(0, 0, 0, 0.5),
                 inset -2px -2px 5px rgba(255, 255, 255, 0.75),
                 inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transform: translateX(-90%);
+}
+
+#back-to-tools:hover {
+    transform: none;
+}
+
+@media (max-width: 955px) {
+    #settings-form, #game-over {
+        padding: 20px;
+    }
+
+    #game-over div #replay-btn {
+        margin-left: 20px;
+    }
 }

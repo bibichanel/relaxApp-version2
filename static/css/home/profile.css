@@ -39,6 +39,18 @@
    font-size: 18pt;
 }
 
+@media (max-width: 650px) {
+    .profile {
+        height: fit-content;
+    }
 
+    #title-profiles, .contents-profile p {
+        font-size: small;
+    }
+
+    .contents-profile {
+        padding: 15% 0;
+    }
+}
 
 

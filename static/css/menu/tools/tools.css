@@ -28,11 +28,15 @@
     width: 20%;
     height: 100%;
     position: relative;
+    flex-direction: column;
 }
 
 .img-bar{
-   margin: 30px auto;
-   width: 55%;
+    /* margin: 30px auto;
+    width: 55%; */
+    margin: 0 auto;
+    width: fit-content;
+    height: fit-content;
 }
 .img-bar a img{
     width: 100%;
@@ -81,15 +85,19 @@
     border: 5px solid #FDF5CA;
 }
 .content-tool{
-    margin: 1% 5%;
+    /* margin: 1% 5%; */
+    margin: auto;
     width: 70%;
     height: 100%;
     box-sizing: border-box;
     position: relative;
     overflow: auto;
+    display: flex;
+    align-items: center;
 }
 .table-tool{
     width: 100%;
+    height: 90%;
     text-align: center;
     display: table;
     border-collapse:collapse;
@@ -170,8 +178,7 @@
 svg {
     position: absolute;
     top: 0;
-    left: 0;
-    
+    left: 0;    
 }
 circle {
     fill: none;
@@ -386,3 +393,88 @@ button:hover {
                     -15px -15px 30px rgba(255, 255, 255, 0.5);
     }
 }
+
+@media (max-width: 955px) {
+    .menu-container {
+        /* display: block; */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item-icon .icon, .item-icon h2, .item-icon p {
+        display: none;
+    }
+
+    .left-bar {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+
+    .item-container {
+        top: 0;
+        position: unset;
+        width: unset;
+    }
+
+    .item-icon {
+        margin: 0;
+        width: fit-content;
+    }
+
+    .img-bar {
+        width: fit-content;
+        margin: 0;
+    }
+
+    .img-bar a img {
+        width: 50%;
+    }
+
+    .btn-menu {
+        margin-top: 0;
+        margin: 0;
+        display: block;
+        width: 30%;
+    }
+
+    .btn-menu a button {
+        font-size: 15pt;        
+    }
+
+    .content-tool {
+        width: 90%;
+        height: 90%;
+    }
+
+    /* .left-bar, .content-tool {
+        display: none;
+    } */
+
+    #process-bar {
+        margin: auto;
+        height: 100%;
+        display: none;
+        align-items: center;
+    }
+
+    svg {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #daijoubu-announcement {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 650px) {
+    #daijoubu-announcement-close-btn {
+        width: fit-content;
+    }
+}
+    
