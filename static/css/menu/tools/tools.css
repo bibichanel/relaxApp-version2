@@ -82,11 +82,11 @@
     font-size: 18pt;
     font-weight: 500;
     background-color: transparent;
-    border: 3px solid #FDF5CA;
-    color: #FDF5CA;
+    border: 3px solid #2E4C6D;
+    color: #2E4C6D;
 }
 .btn-menu a button:hover{
-    background-color: #FDF5CA;
+    background-color: #2E4C6D;
     color: #000;
 }
 .content-tool{
@@ -401,12 +401,10 @@ button:hover {
 
 @media (max-width: 955px) {
     .menu-container {
-        /* display: block; */
-        display: flex;
-        flex-direction: column;
+        display: block;
     }
 
-    .item-icon .icon, .item-icon h2, .item-icon p {
+    .item-icon {
         display: none;
     }
 
@@ -417,38 +415,33 @@ button:hover {
         flex-direction: row;
         align-items: center;
         flex-wrap: nowrap;
-        justify-content: space-around;
-    }
-
-    .item-container {
-        top: 0;
-        position: unset;
-        width: unset;
-    }
-
-    .item-icon {
-        margin: 0;
-        width: fit-content;
     }
 
     .img-bar {
         width: fit-content;
-        margin: 0;
+        margin: 0 1em;
     }
 
     .img-bar a img {
         width: 50%;
     }
 
-    .btn-menu {
-        margin-top: 0;
-        margin: 0;
-        display: block;
-        width: 30%;
+    .item-container {
+        /* position: unset; */
+        top: 0;
+        width: inherit;
+        height: inherit;
+        display: inline-flex;
+        justify-content: flex-end;
+        align-items: center;
+        
     }
 
-    .btn-menu a button {
-        font-size: 15pt;        
+    .btn-menu {
+        margin-top: 0;
+        margin-right: 30px;
+        width: 50%;
+        text-align: end;
     }
 
     .content-tool {
@@ -482,4 +475,11 @@ button:hover {
         width: fit-content;
     }
 }
-    
+@media (max-width: 499px){
+    .btn-menu button{
+        font-size: 10pt;
+    }
+    .btn-menu{
+        margin-right: 0 ;
+    }
+}

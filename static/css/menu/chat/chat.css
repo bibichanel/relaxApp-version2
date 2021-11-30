@@ -530,12 +530,16 @@ a.btn,.btn {
         border-bottom:1px solid rgba(255, 255, 255, 0.6);
         margin: 0 auto;
     }
+    #another-audio-btn{
+        margin: 0.5em 0;
+    }
     .music-content{
         margin: 0 auto;
         overflow-y: hidden;
     }
     .music-content h2{
         text-align: center;
+        margin: 0.5em 0;
     }
     .container-main{
         display: block;
@@ -551,7 +555,7 @@ a.btn,.btn {
         height: 17vh;
     }
     .container-chat{
-        width: 60%;
+        width: 70%;
         margin: 0 auto;
     }
     .logo-chat{
@@ -577,5 +581,37 @@ a.btn,.btn {
     .name-room h2{
         font-size: 15pt;
         overflow-x: hidden;
+    }
+    .container-chat{
+        width: 85%;
+        margin: 0 auto;
+    }
+    .chat-box{
+        height: 200px;
+    }
+    .name-room h2{
+        font-size: 15pt;
+        overflow-x: hidden;
+    }
+    .icon-user-name i{
+        font-size: 15pt;
+    }
+    .name-user p{
+        font-size: 14pt;
+    }
+    .detail-incoming p{
+        font-size: 12pt;
+    }
+    .detail-outgoing p{
+        font-size: 12pt;
+    }
+    .typing-area input{
+        font-size: 14pt;
+    }
+    .btn-messager-submit i{
+        font-size: 15;
+    }
+    .btn-messager-submit {
+        margin-right: 7vw;
     }
 }

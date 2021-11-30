@@ -88,13 +88,13 @@
     font-size: 18pt;
     font-weight: 500;
     background-color: transparent;
-    border: 3px solid #FDF5CA;
-    color: #FDF5CA;
+    border: 3px solid #2E4C6D;
+    color: #2E4C6D;
 }
 .btn-menu a button:hover{
-    background-color: #FDF5CA;
+    background-color: #2E4C6D;
     color: #000;
-}
+} 
 
 
 #music-container {
@@ -617,12 +617,11 @@
         flex-direction: row;
         align-items: center;
         flex-wrap: nowrap;
-        justify-content: space-around;
     }
 
     .img-bar {
         width: fit-content;
-        margin: 0;
+        margin: 0 1em;
     }
 
     .img-bar a img {
@@ -630,16 +629,21 @@
     }
 
     .item-container {
-        position: unset;
+        /* position: unset; */
         top: 0;
-        width: unset;
+        width: inherit;
+        height: inherit;
+        display: inline-flex;
+        justify-content: flex-end;
+        align-items: center;
+        
     }
 
     .btn-menu {
         margin-top: 0;
-        margin: 0;
-        display: block;
-        width: 30%;
+        margin-right: 30px;
+        width: 50%;
+        text-align: end;
     }
 
     #music-container {
@@ -656,6 +660,14 @@
         font-size: 15pt;
     }
 
+}
+@media (max-width: 499px){
+    .btn-menu button{
+        font-size: 10pt;
+    }
+    .btn-menu{
+        margin-right: 0 ;
+    }
 }
 
 
