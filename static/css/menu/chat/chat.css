@@ -227,7 +227,7 @@ form{
     cursor: pointer;
 }
 /* ----------------Frame-users------------ */
-.frame-user{
+/* .frame-user{
     margin-top: 30px;
     display: block;
     min-height: 15vh;
@@ -256,6 +256,43 @@ table{
 }
 .td-name p{
     color: #FFFFFF;
+} */
+.back-btn{
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: 40%;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+}
+a.btn,.btn {
+    cursor: pointer;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: inline-block;
+    outline: none;
+    *zoom: 1;
+    text-align: center;
+    text-decoration: none;
+    font-family: inherit;
+    font-weight: 300;
+    letter-spacing: 1px;
+    vertical-align: middle;
+    border: 1px solid;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.01);
+    border-radius: 3px;
+    font-size: 0.9375em;
+    padding: 0.5375em 1.375em;
+}
+.btn-blue {
+    color: #5D6EB4;
+    border-color: #5D6EB4;
+  }
+.btn-blue:hover {
+    background: #5D6EB4;
+    color: #fff;
+    border-color: #5D6EB4;    
 }
 /* ----------------Choose-background------------ */
 .choose-background{
@@ -263,13 +300,33 @@ table{
     text-align: center;
 }
 .dropbtn{
-    background-color: transparent;
-    color: white;
-    font-weight: bold;
-    padding: 9px;
-    font-size: 16px;
-    border-bottom: 2px solid #FFFFFF;
     cursor: pointer;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: inline-block;
+    outline: none;
+    *zoom: 1;
+    text-align: center;
+    text-decoration: none;
+    font-family: inherit;
+    font-weight: 300;
+    letter-spacing: 1px;
+    vertical-align: middle;
+    border: 1px solid;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.01);
+    border-radius: 3px;
+    font-size: 0.9375em;
+    padding: 0.5375em 1.375em;
+    color: #5D6EB4;
+    border-color: #5D6EB4;
+    background-color: transparent;
+}
+.dropbtn:hover{
+    background: #5D6EB4;
+    color: #fff;
+    border-color: #5D6EB4; 
 }
 /* Dùng trong <div> để định vị nội dung thả xuống */
 .dropdown {
@@ -291,10 +348,12 @@ table{
     max-width: 100%;    
     padding: 0 auto;
 }
-  
+.dropdown-content::-webkit-scrollbar{
+    display:none;
+}
 /* Liên kết bên trong danh sách thả xuống */
   .dropdown-content a {
-    color: black;
+    color: #5D6EB4;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -314,6 +373,7 @@ table{
 /* Thay đổi màu nền của nút thả xuống khi nội dung được hiển thị */
   .dropdown:hover .dropbtn {
     background-color: #5d6eb4;
+    color: #fff;
   }
 /* ---------------------------frame Chat------------------------ */
 .container-chat{
@@ -458,4 +518,64 @@ table{
     color: #FFFFFF;
     font-size: 12pt;
     font-weight: 400;
+}
+
+@media (max-width: 900px) {
+    .container-music{
+        display: block;
+    }
+    .quick-player{
+        width: 60%;
+        border-right: none ;
+        border-bottom:1px solid rgba(255, 255, 255, 0.6);
+        margin: 0 auto;
+    }
+    .music-content{
+        margin: 0 auto;
+        overflow-y: hidden;
+    }
+    .music-content h2{
+        text-align: center;
+    }
+    .container-main{
+        display: block;
+    }
+    .container-tools{
+        width: 80%;
+        margin:0 auto;
+    }
+    .tool-choose-name{
+        text-align: center;
+    }
+    .choose-background{
+        height: 17vh;
+    }
+    .container-chat{
+        width: 60%;
+        margin: 0 auto;
+    }
+    .logo-chat{
+        width: 12%;
+    }
+    .logo-chat i{
+        font-size: 17pt;
+        color: #FFFFFF;
+        margin: 0 auto;
+    }
+    .name-room h2{
+        font-size: 18pt;
+        overflow-x: hidden;
+    }
+    .back-btn{
+        margin-top: 2vh;
+        position: relative;
+        width: 100%;
+    }
+}
+
+@media (max-width: 499px) {
+    .name-room h2{
+        font-size: 15pt;
+        overflow-x: hidden;
+    }
 }

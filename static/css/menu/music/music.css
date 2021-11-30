@@ -22,7 +22,7 @@
     position: relative;
 }
 .img-bar{
-    margin: auto;
+    margin: 1em auto;
     width: fit-content;
     height: fit-content;
 }
@@ -80,25 +80,21 @@
 }
 
 .btn-menu{
-    /* margin-top: 15vh; */
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
+    margin-top: 15vh;
+    text-align: center;
 }
-
-.btn-menu:hover {
-    cursor: pointer;
-}
-
 .btn-menu a button{
-    padding: 1% 15%;
-    font-size: 25pt;
+    padding: 1.5% 1em;
+    font-size: 18pt;
     font-weight: 500;
     background-color: transparent;
-    border: 5px solid #FDF5CA;
-    /* margin: 0 auto; */
+    border: 3px solid #FDF5CA;
+    color: #FDF5CA;
 }
-
+.btn-menu a button:hover{
+    background-color: #FDF5CA;
+    color: #000;
+}
 
 
 #music-container {

@@ -73,7 +73,7 @@
                       </form>
                 </div>
                  <!-- -------------------------------frame user--------------------------- -->
-                <div class='frame-user'>
+                <!-- <div class='frame-user'>
                     <table>
                         <tbody>
                             <tr class='row-user'>
@@ -103,7 +103,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div> -->
                  <!-- ---------------------------------choose background--------------------------- -->
                 <div class= 'choose-background'>
                     <div class="dropdown">
@@ -115,6 +115,10 @@
                         
                         </div>
                     </div>
+                </div>
+                <!-- ----------------------------------------back-menu------------------------------ -->
+                <div class="back-btn">
+                    <a class="btn btn-blue" href="{% url 'menu'%}">Back menu</a>
                 </div>
             </div>
              <!-- --------------------------------frame chat---------------------------- -->
@@ -157,7 +161,7 @@
                 <!-- ------------------------- -->
                 <div class="container-typing-area">
                     <form action="." class='typing-area'>
-                        <input type="text" name="" id="chat-massager-input" placeholder="Typing a message here ..." onkeydown="return keyEnterMessager(event)">
+                        <input type="text" name="" id="chat-massager-input" placeholder="Typing a message here ..." onkeydown="keyEnterMessager(event)">
                         <a class ='btn-messager-submit' id='chat-massager-submit'><i class="fab fa-telegram-plane"></i></a>
                     </form>
                 </div>

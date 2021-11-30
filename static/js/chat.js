@@ -82,10 +82,10 @@ const _username = JSON.parse(document.getElementById('json-username').textConten
 //-------------------------------------------Choose name--------------------------------------------
 function assignValue(){
     if(document.getElementById('old-name').checked){
-        document.querySelector("#old-name").click;
+        document.querySelector("#old-name").change;
     };
     if(document.getElementById('check-new-name').checked){
-        document.querySelector("#check-new-name").click;
+        document.querySelector("#check-new-name").change;
     };
     return undefined;
 };
@@ -102,11 +102,11 @@ function useNewname(){
         _nickname = value;
     };
 };
-document.querySelector("#old-name").onclick = function(){
+document.querySelector("#old-name").onchange = function(){
     alert('Use nickname default')
     _nickname = JSON.parse(document.getElementById('json-nickname').textContent);
 };
-document.querySelector("#check-new-name").onclick = function(){
+document.querySelector("#check-new-name").onchange = function(){
     useNewname()
 };
 //----------------------------------------------------------------------------
@@ -121,11 +121,10 @@ var chatSocket = new WebSocket(
 chatSocket.onmessage = function(e){
     console.log('onmessage');
     
-    // alert('Nick name of you: ' + _nickname)
-    // if(_nickname == null || _nickname == undefined){
-    //     alert("What is the nickname you use?");
-    //     return;
-    // }
+    if(_nickname == null || _nickname == undefined){
+        alert("What is the nickname you use?");
+        return;
+    }
 
     var data = JSON.parse(e.data);
 
@@ -178,11 +177,10 @@ document.querySelector('#chat-massager-submit').onclick = function(e){
     var messageInputDom = document.querySelector('#chat-massager-input');
     var message = messageInputDom.value;
 
-    // alert('Nick name of you: ' + _nickname)
-    // if(_nickname == null || _nickname == undefined){
-    //     alert("What is the nickname you use?");
-    //     return;
-    // }
+    if(_nickname == null || _nickname == undefined){
+        alert("What is the nickname you use?");
+        return;
+    }
 
     chatSocket.send(JSON.stringify({
         'message': message,
